@@ -18,8 +18,9 @@ public class App {
 //		}
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext("context.xml");
-		//StudentService service = context.getBean("stServiceBean", StudentService.class);
-		StudentService service = (StudentService) context.getBean("stServiceBean");
+		StudentService service = context.getBean("stServiceBean", StudentService.class);
+		//Co the lam cach khac nhu sau
+		//StudentService service = (StudentService) context.getBean("stServiceBean");
 		System.out.println(service.getAllStudents());
 		
 	}

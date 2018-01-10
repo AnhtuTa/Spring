@@ -1,0 +1,4 @@
+Một số lưu ý với Auto wiring trong Spring
+- Khả năng ghi đè (Overriding possibility): bạn vẫn có thể chỉ rõ dependency bằng cách sử dụng <constructor-arg> và <property> nó sẽ ghi đè lại autowiring
+- Kiểu dữ liệu nguyên thủy (Primitive data types): Bạn không thể thực hiện autowire với các dữ liệu nguyên thủy như int, String…
+- Confusing nature: việc autowiring thực hiện tự động, đôi khi nó có thể link tới những bean không tồn tại, nếu có thể thì bạn hãy link nó một cách rõ ràng và dùng required = true để chắc chắn bean được prefer tới có tồn tại.

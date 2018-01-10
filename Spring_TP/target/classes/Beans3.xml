@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<bean id="te_byname" class="autowire.TextEditor" autowire="byName">
+		<property name="name" value="Notepad++" />
+	</bean>
+	<bean id="spellChecker" class="autowire.SpellChecker" />	 <!-- id="spellChecker", nghĩa là nó phải trùng với tên thuộc tính của class TextEditor, như vậy mới autowire đc! -->
+	
+	<bean id="te_bytype" class="autowire.TextEditor" autowire="byType">
+		<property name="name" value="Notepad++" />
+	</bean>
+	<!--  bean id="spellChecker" class="autowire.SpellChecker": đã định nghĩa ở trên rồi /-->
+	
+	<bean id="ce_byconstructor" class="autowire.CodeEditor" autowire="constructor">
+		<constructor-arg name="name" value="Notepad++" />
+	</bean>
+</beans>
+

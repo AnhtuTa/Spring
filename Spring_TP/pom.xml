@@ -1,0 +1,65 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>bkhn.att</groupId>
+  <artifactId>Spring_TP</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Spring_TP</name>
+  <description>Spring demo from TutorialPoint</description>
+  
+  <dependencies>
+  	<!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+	<dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-context</artifactId>
+	    <version>3.0.2.RELEASE</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>cglib</groupId>
+	    <artifactId>cglib</artifactId>
+	    <version>3.0</version>
+	</dependency>
+  </dependencies>
+  
+  <build>
+    <finalName>Spring_TP</finalName>
+    
+    <pluginManagement>
+  		<plugins>
+  			<plugin>
+  				<groupId>org.apache.maven.plugins</groupId>
+  				<artifactId>maven-compiler-plugin</artifactId>
+  				<version>3.6.1</version>
+  				<configuration>
+  					<source>1.8</source>
+  					<target>1.8</target>
+  				</configuration>
+  			</plugin>
+  			<plugin>
+  				<artifactId>maven-resources-plugin</artifactId>
+  				<version>2.7</version>
+  			</plugin>
+  			
+		      <plugin>
+		        <groupId>org.apache.maven.plugins</groupId>
+		        <artifactId>maven-war-plugin</artifactId>
+		        <version>3.2.0</version>
+		        <configuration>
+		          <webappDirectory>/sample/servlet/container/deploy/directory</webappDirectory>
+		        </configuration>
+		      </plugin>
+		      
+		      <plugin>
+		          <groupId>org.apache.tomcat.maven</groupId>
+		          <artifactId>tomcat7-maven-plugin</artifactId>
+		          <version>2.2</version>
+		          <configuration>
+		          	<url>http://localhost:8080/manager/text</url>
+		          	<server>TomcatServer</server>
+		          	<path>/ep</path>
+		          </configuration>
+		      </plugin>
+  		</plugins>
+  	</pluginManagement>
+  </build>
+</project>

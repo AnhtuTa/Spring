@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<bean id="ad1" class="dependency_injection.beans.Address">
+		<property name="country" value="Viet Nam"></property>
+		<property name="province" value="Ha Noi"></property>
+		<property name="district" value="Thanh Xuan"></property>
+	</bean>
+	<bean id="ad2" class="dependency_injection.beans.Address">
+		<property name="country" value="Viet Nam"></property>
+		<property name="province" value="HCM"></property>
+		<property name="district" value="Quan 7"></property>
+	</bean>
+	
+	<!-- Inject by setter -->
+	<bean id="st1" class="dependency_injection.beans.Student">
+		<property name="name" value="Anhtu95"/>
+	    <property name="emailList">
+	    	<list>
+	    		<value>abc@gmail.com</value>
+	    		<value>ghi@hotmail.com</value>
+	    	</list>
+	    </property>
+	    <property name="addrSet">
+	    	<set>
+	    		<ref bean="ad1" />
+	    		<ref bean="ad2" />
+	    		<ref bean="ad1" />	<!-- Lặp lại, liệu set có cho phép??? -->
+	    	</set>
+	    </property>
+	</bean>
+	
+	<!-- Inject by constructor -->
+	<bean id="st2" class="dependency_injection.beans.Student">
+		<constructor-arg name="name" value="Nguyen bka"/>	<!-- Chỉ cần thay constructor-arg = property là giống hệt kiểu Inject by setter -->
+	    <constructor-arg name="emailList">
+	    	<list>
+	    		<value>wtf@gmail.com</value>
+	    		<value>hehehe@hotmail.com</value>
+	    	</list>
+	    </constructor-arg>
+	    <constructor-arg name="addrSet">
+	    	<set>
+	    		<ref bean="ad1" />
+	    		<ref bean="ad2" />
+	    	</set>
+	    </constructor-arg>
+	</bean>
+</beans>

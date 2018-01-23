@@ -17,7 +17,7 @@ This is ~~strike~~
 [This is a link](https://www.google.com.vn/ "This is the title of link")
 
 #### Demo image:
-![This is 'alt' text (like alt in <img> tag)](https://atom.io/assets/packages-d16d6cc46fd0cf01842409577e782b74.gif)
+![This is 'alt' text (like alt in <img> tag)](https://github-atom-io-herokuapp-com.global.ssl.fastly.net/assets/packages-0fc07ecae73a786761ada738d16ae2ff.gif)
 
 #### Demo list
 1. Apple

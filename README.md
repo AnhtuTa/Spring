@@ -14,7 +14,7 @@ Nếu muốn bạn có thể dùng gạch dưới _ thay cho dấu sao *
 This is __bold__ and _italic_ anh ___both of bold and italic___
 This is ~~strike~~
 
-[This is a link] (https://www.google.com.vn/)
+[This is a link](https://www.google.com.vn/ "This is the title of link")
 
 #### Demo image:
 ![This is 'alt' text (like alt in <img> tag)](https://atom.io/assets/packages-d16d6cc46fd0cf01842409577e782b74.gif)

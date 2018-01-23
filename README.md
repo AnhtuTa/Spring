@@ -10,9 +10,10 @@ This repository was created on 11/11/2017 (Nov 11th, 2017)
 ### This is header h3
 
 This is **bold** and *italic* anh ***both of bold and italic*** <br/>
-Nếu muốn bạn có thể dùng gạch dưới _ thay cho dấu sao * 
-This is __bold__ and _italic_ anh ___both of bold and italic___ 
-This is ~~strike~~ 
+Nếu muốn bạn có thể dùng gạch dưới _ thay cho dấu sao *  
+This is __bold__ and _italic_ anh ___both of bold and italic___<br>
+This is ~~strike~~  
+newline using: br tag or enter 2 spaces at the end of a line, like these lines above!
 
 [This is a link](https://www.google.com.vn/ "This is the title of link")
 

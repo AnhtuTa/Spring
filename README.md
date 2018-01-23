@@ -29,9 +29,11 @@ This is my favorite quote:
 > "You can do anything, but not everything!"
 
 #### Demo Emoji
-[Click here](https://www.webpagefx.com/tools/emoji-cheat-sheet/) to see all emojis
-:smile:
-:laughing:
-:blush:
-:worried:
-:sweat_smile:
+[Click here](https://www.webpagefx.com/tools/emoji-cheat-sheet/) to see all emojis  
+:smile:  
+:laughing:  
+:blush:  
+:worried:  
+:sweat_smile:  
+
+

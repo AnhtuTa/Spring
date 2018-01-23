@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-4.3.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
+
+	<context:component-scan base-package="hello" />
+	<mvc:annotation-driven />
+
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- bean này thực hiện mapping các file view tương ứng, ở trong ví dụ 
+			này nó sẽ map các file trong folder WEB-INF/views/jsp có đuôi là .jsp -->
+		<property name="prefix">
+			<value>/WEB-INF/views/jsp/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	</bean>
+
+	<!-- Bean messageSource định nghĩa nơi chứa các file message 
+	(ví dụ ở đây là ở folder i18n và file có tên bắt đầu là messages) -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="/i18n/messages" />
+		<property name="defaultEncoding" value="UTF-8" />
+	</bean>
+	
+	<!-- Bean localeResolver định nghĩa cách xác định ngôn ngữ 
+	(Ở đây spring sẽ tạo ra 1 cookies có giá trị là myAppLocaleCookie
+	 để xác định ngôn ngữ của client, bạn có thể chuyển sang xác 
+	 định ngôn ngữ bằng cách sử dụng session bằng class:
+		 <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+     Khi cookies/session 
+	 hết hạn hoặc bị xóa thì ngôn ngữ sẽ trở về ngôn ngữ mặc định) -->
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+		<property name="defaultLocale" value="en" />
+		<property name="cookieName" value="myAppLocaleCookie"></property>
+		<property name="cookieMaxAge" value="3600"></property>
+	</bean>
+	
+	<mvc:interceptors>
+		<!-- mvc:interceptors Thực hiện lọc request có paramName = language 
+		để thực hiện đổi ngôn ngữ, ví dụ ?language=vi sẽ chuyển 
+		ngôn ngữ sang tiếng việt) -->
+		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+			<property name="paramName" value="language" />
+		</bean>
+		
+		<!-- Các interceptor sẽ được khai báo trong thẻ <mvc:interceptor>
+			Thẻ <mvc:mapping> khai báo các url sẽ đi qua interceptor (có 
+			thể khai báo nhiều thẻ <mvc:mapping> trong 1 thẻ <mvc:interceptor>
+			Thẻ <mvc:exclude> để bỏ qua các url khi thực hiện interceptor -->
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<bean class="hello.interceptors.LogTimeInterceptor" />
+		</mvc:interceptor>
+		
+		<mvc:interceptor>
+			<mvc:mapping path="/spring/**"/>
+			<mvc:exclude-mapping path="/spring/abc/"/>
+			<bean class="hello.interceptors.ClientInfoInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
+	<!-- Bắt buộc phải có thẻ <mvc:annotation-driven /> để Spring 
+	có thể hiểu được việc mapping
+	
+	Trong thẻ <mvc:resources> chúng ta sẽ định nghĩa đường dẫn cố 
+	định qua giá trị của thuộc tính mapping và khai báo nơi chứa 
+	resource trong thuộc tính location; thuộc tính cache-period 
+	định nghĩa thời gian lưu cache cho resource
+	
+	Dòng dưới đây config để tất cả các file lưu trong folder 
+	webapp/resources/bootstrap sẽ được truy cập qua path là /resrouces -->
+	<mvc:resources location="/resources/bootstrap/" mapping="/resources/**" cache-period="31556926" />
+</beans>

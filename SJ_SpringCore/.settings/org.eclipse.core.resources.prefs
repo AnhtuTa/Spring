@@ -1,0 +1,8 @@
+eclipse.preferences.version=1
+encoding//src/main/java/auto_scan_components/App.java=UTF-8
+encoding//src/main/java/auto_scan_components/UserService.java=UTF-8
+encoding//src/main/java/autowire/annotation/by_constructor/Person.java=UTF-8
+encoding//src/main/java/autowire/annotation/by_type/Person.java=UTF-8
+encoding//src/main/java/autowire/annotation/notes.txt=UTF-8
+encoding//src/main/java/spring_aop/aspectj/LoggerAspectJ.java=UTF-8
+encoding//src/main/java/spring_aop/config_using_xml/DemoBeforeAdvice.java=UTF-8

@@ -1,0 +1,12 @@
+eclipse.preferences.version=1
+encoding//src/main/java/hello/controller/EmployeeController.java=UTF-8
+encoding//src/main/java/hello/controller/HelloController.java=UTF-8
+encoding//src/main/java/hello/controller/PathVariableDemo.java=UTF-8
+encoding//src/main/java/hello/controller/Redirection.java=UTF-8
+encoding//src/main/java/hello/controller/RedirectionWithAttributes.java=UTF-8
+encoding//src/main/java/hello/controller/ResponseBodyDemo.java=UTF-8
+encoding//src/main/java/hello/interceptors/LogTimeInterceptor.java=UTF-8
+encoding//src/main/webapp/WEB-INF/views/jsp/add_employee.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/jsp/add_employee2.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/jsp/test51.jsp=UTF-8
+encoding//src/main/webapp/i18n/messages_vi.properties=UTF-8

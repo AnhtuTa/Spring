@@ -1,5 +1,6 @@
 package tutorialspoint;
 
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -12,6 +13,8 @@ public class BeanLifeCycle {
 		Food food = (Food) context.getBean("banana");
 		System.out.println(food.getInfo());
 		context.registerShutdownHook();
+
+		((ConfigurableApplicationContext)context).close();
 	}
 
 }

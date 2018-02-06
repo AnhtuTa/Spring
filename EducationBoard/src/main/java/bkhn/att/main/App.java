@@ -1,13 +1,10 @@
 package bkhn.att.main;
 
-import java.util.List;
-
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import bkhn.att.model.Student;
 import bkhn.att.service.StudentService;
-import bkhn.att.service.StudentServiceImpl;
 
 public class App {
 	public static void main(String[] args) {
@@ -23,5 +20,6 @@ public class App {
 		//StudentService service = (StudentService) context.getBean("stServiceBean");
 		System.out.println(service.getAllStudents());
 		
+		((ConfigurableApplicationContext) context).close();
 	}
 }

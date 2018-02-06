@@ -2,6 +2,7 @@ package tutorialspoint;
 
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
@@ -9,6 +10,7 @@ import org.springframework.core.io.ClassPathResource;
 import beans.HelloWorld;
 import beans.Student;
 
+@SuppressWarnings("deprecation")
 public class SpringContainer {
 
 	public static void main(String[] args) {
@@ -31,7 +33,10 @@ public class SpringContainer {
 		ApplicationContext context2 = new FileSystemXmlApplicationContext(System.getProperty("user.dir") + "/src/main/java/Beans.xml");
 		st = (Student) context2.getBean("mySt");
 		System.out.println(st.getInfo());
-		
+
+
+		((ConfigurableApplicationContext)context).close();
+		((ConfigurableApplicationContext)context2).close();
 	}
 
 }

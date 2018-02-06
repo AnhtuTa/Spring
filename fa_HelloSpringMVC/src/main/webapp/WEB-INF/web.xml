@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+	<display-name>Archetype Created Web Application</display-name>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<servlet>
+		<servlet-name>spring_mvc</servlet-name>
+		<!-- Mẹo: vào Maven dependencies, tìm đến file spring-webmvc-4.3.xxx.jar, 
+			sau đó tìm đến package sau để copy và điển vào đây cho nhanh! -->
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<!-- <init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/your_config_file_name.xml</param-value>
+		</init-param> -->
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>spring_mvc</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+</web-app>

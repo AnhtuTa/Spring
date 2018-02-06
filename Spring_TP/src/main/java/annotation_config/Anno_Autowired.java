@@ -1,6 +1,7 @@
 package annotation_config;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Anno_Autowired {
@@ -9,6 +10,8 @@ public class Anno_Autowired {
 		ApplicationContext context = new ClassPathXmlApplicationContext("Beans4.xml");
 		Person p = (Person) context.getBean("p1");
 		System.out.println(p.getInfo());
+		
+		((ConfigurableApplicationContext)context).close();
 	}
 
 }

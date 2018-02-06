@@ -1,6 +1,7 @@
 package tutorialspoint;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import beans.HelloVietnam;
@@ -19,7 +20,9 @@ public class BeanDefinitionInheritance {
 		hv.getMessage();	//message của hv kế thừa giá trị của message của hw
 		hv.getMessage2();	//message2 của hv kế thừa giá trị của message2 của hw
 		hv.getMessage3();
-		
+
+
+		((ConfigurableApplicationContext)context).close();
 	}
 
 }

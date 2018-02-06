@@ -1,6 +1,7 @@
 package dependency_injection;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import beans.JavaCollection;
@@ -14,6 +15,8 @@ public class InjectingCollection_BeanReferences {
 		jc.getBookMap();
 		jc.getBookSet();
 		jc.getBookProp();
+
+		((ConfigurableApplicationContext)context).close();
 		
 	}
 

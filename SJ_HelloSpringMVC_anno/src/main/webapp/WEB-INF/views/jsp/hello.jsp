@@ -8,5 +8,6 @@
 </head>
 <body>
 	<h3>This is hello.jsp. Hello!</h3>
+	<div>Greeting from controller: ${greeting}</div>
 </body>
 </html>

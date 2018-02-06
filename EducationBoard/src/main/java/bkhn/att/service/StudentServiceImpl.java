@@ -4,7 +4,6 @@ import java.util.List;
 
 import bkhn.att.model.Student;
 import bkhn.att.repository.StudentRepository;
-import bkhn.att.repository.StudentRepositoryImpl;
 
 public class StudentServiceImpl implements StudentService {
 	StudentRepository studentRepository;

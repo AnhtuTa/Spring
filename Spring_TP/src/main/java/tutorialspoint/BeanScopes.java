@@ -1,6 +1,7 @@
 package tutorialspoint;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import beans.Student;
@@ -22,7 +23,9 @@ public class BeanScopes {
 		System.out.println(st3.getName());
 		Student st4 = (Student) context.getBean("st_prototype");
 		System.out.println(st4.getName());	//null, vì thằng này có scope là prototype
-		
+
+
+		((ConfigurableApplicationContext)context).close();
 	}
 
 }

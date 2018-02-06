@@ -13,6 +13,8 @@ public class EventDemo {
 		Student st = (Student) context.getBean("st1");
 		System.out.println(st.getInfo());
 		context.stop();
+
+		((ConfigurableApplicationContext)context).close();
 	}
 
 }

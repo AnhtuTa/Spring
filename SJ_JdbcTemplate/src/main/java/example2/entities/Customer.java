@@ -44,4 +44,8 @@ public class Customer {
 		this.address = address;
 	}
 
+	public String getInfo() {
+		return name + " - " + address;
+	}
+
 }

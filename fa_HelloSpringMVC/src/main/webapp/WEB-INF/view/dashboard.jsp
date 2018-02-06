@@ -9,7 +9,7 @@
 <body>
 	<div align="center">
 		<h3>Login success!</h3>
-		<h2>Welcome to my website!</h2>
+		<h2>Hello ${loginedUser}! Welcome to my website!</h2>
 	</div>
 </body>
 </html>

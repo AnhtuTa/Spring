@@ -37,6 +37,7 @@ public class LoginController {
 	public String login(@ModelAttribute("fresher_demo") Fresher f1, Model model) {
 		if(loginService.checkLogin(f1)) {
 			model.addAttribute("fresher_demo", f1);
+			model.addAttribute("loginedUser", f1.getUsername());
 			return "dashboard";
 		} else {
 			model.addAttribute("error", true);

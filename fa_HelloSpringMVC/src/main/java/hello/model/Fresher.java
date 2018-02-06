@@ -7,6 +7,15 @@ public class Fresher {
 	private String location;
 	private int year;
 	
+	public Fresher(int id, String username, String password, String location, int year) {
+		super();
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.location = location;
+		this.year = year;
+	}
+
 	public Fresher(String username, String password, String location, int year) {
 		super();
 		this.username = username;

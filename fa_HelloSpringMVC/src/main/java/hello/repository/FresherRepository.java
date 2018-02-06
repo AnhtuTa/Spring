@@ -1,24 +1,25 @@
 package hello.repository;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import hello.dao.FresherDAO;
 import hello.model.Fresher;
 
 @Repository
 public class FresherRepository {
+	
+	@Autowired
+	private FresherDAO fresherDAO;
+	
 	public boolean authenticate(Fresher f) {
-		/// check fresher in database
-		//....
-		
-		//mô phỏng việc check mà ko dùng CSDL:
-		return "att".equals(f.getUsername()) && "1111".equals(f.getPassword());
+		Fresher f1 = fresherDAO.getFresherByUserAndPass(f.getUsername(), f.getPassword());
+		//save f1.getUsername() to session
+		//...
+		return f1 != null;		
 	}
 
 	public boolean authenRegister(Fresher f) {
-		/// check fresher in database
-		// VD: xem thằng f này đã tồn tại chưa; validate input,...
-		
-		// sau đó mới return
-		return (!"att".equals(f.getUsername()));
+		return fresherDAO.insertFresher(f);
 	}
 }

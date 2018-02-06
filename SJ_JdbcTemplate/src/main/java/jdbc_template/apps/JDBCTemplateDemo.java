@@ -35,7 +35,18 @@ public class JDBCTemplateDemo {
 		getJDBC();
 		String sql = "SELECT * FROM pupil WHERE name LIKE '%" + name + "%'";
 		List<Map<String, Object>> pList = jdbcTemplate.queryForList(sql);
-		/*
+		System.out.println(pList);
+		/* kq in:
+		 * [
+		 * 		{id=1, name=anhtu, addr=Hanoi, country=1},
+		 * 		{id=17, name=anhtu2, addr=Hanoi2, country=3},
+		 * 		{id=18, name=anhtu3, addr=Hanoi3, country=3},
+		 * 		{id=19, name=anhtu4, addr=Hanoi4, country=3},
+		 * 		{id=20, name=anhtu5, addr=Hanoi5, country=3},
+		 * 		{id=23, name=anhtu2, addr=Hanoi2, country=3}
+		 * ]
+		 * 
+		 * Từ kq trên có thể thấy:
 		 * pList là 1 danh sách các map (Mỗi row tương ứng với 1 map)
 		 * mỗi map có size = số cột mà câu truy vẫn trả về
 		 * mỗi bản ghi của mỗi map có format: key=value, trong đó key là tên của cột

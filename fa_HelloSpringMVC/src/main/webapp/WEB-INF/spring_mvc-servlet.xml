@@ -16,4 +16,24 @@
 	 	<property name="prefix" value="/WEB-INF/view/" />
 	 	<property name="suffix" value=".jsp" />
 	 </bean>
+	 
+	 <bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>database.properties</value>	<!-- Tên file prop trong thư mục resources -->
+		</property>
+	</bean>
+	
+	 <bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${jdbc.driverClassName}" />
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+	</bean>
+	
+	<!-- jdbcTemplate: to connect and handle with MySQL -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
 </beans>

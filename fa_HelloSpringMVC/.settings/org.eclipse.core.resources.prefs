@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+encoding//src/main/java/hello/controller/LoginController.java=UTF-8
+encoding//src/main/java/hello/dao/FresherDAO.java=UTF-8
+encoding//src/main/java/hello/repository/FresherRepository.java=UTF-8
+encoding//src/main/webapp/WEB-INF/view/login.jsp=UTF-8

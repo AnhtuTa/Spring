@@ -28,7 +28,7 @@ public class RegisterController {
 		}
 		else {
 			model.addAttribute("error", true);
-			return "register";
+			return "redirect:register";
 		}
 	}
 }

@@ -28,7 +28,10 @@
 			<value>jdbc.properties</value>	<!-- Tên file prop trong thư mục resources -->
 		</property>
 	</bean>
-
+	<!-- Hoặc có thể dùng (???):
+	<context:property-placeholder location="classpath:jdbc.properties"/>
+	-->
+	
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="${jdbc.driverClassName}" />

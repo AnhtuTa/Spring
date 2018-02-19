@@ -9,6 +9,14 @@
 <title>EL demo</title>
 </head>
 <body>
+	<div style="color: blue; margin: 10px">
+		How to get contextPath using EL:<br>
+		ContextPath = ${pageContext.request.contextPath}<br>
+		Nhận xét: muốn lấy thuộc tính của request thì phải thông qua đối tượng pageContext,
+		chú ý thêm là contextPath KHÔNG phải là thuộc tính của requestScope (1 đối tượng ẩn trong EL),
+		mà nó là thuộc tính của request, mà muốn dùng thằng request thì phải thông qua thằng 
+		pageContext (1 đối tượng ẩn trong EL)
+	</div>
 	<jsp:useBean id="person2" class="beans.Person" scope="request">
 		<!-- Chú ý: việc set thuộc tính sau chỉ đc thực hiện nếu bean person2 KHÔNG TỒN TẠI TỪ request VÀ ĐC TẠO MỚI -->
 		<jsp:setProperty name="person2" property="name" value="Nguyen bka"/>

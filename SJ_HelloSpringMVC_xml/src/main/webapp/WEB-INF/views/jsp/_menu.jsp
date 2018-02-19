@@ -11,5 +11,6 @@
 	<li><a href="${pageContext.request.contextPath}/test61">test61</a></li>
 	<li><a href="${pageContext.request.contextPath}/spring/test62">test62</a></li>
 	<li><a href="${pageContext.request.contextPath}/test71">test71</a></li>
+	<li><a href="${pageContext.request.contextPath}/test72">test72</a></li>
 	
 </ul>

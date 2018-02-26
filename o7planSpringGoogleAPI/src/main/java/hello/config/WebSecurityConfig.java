@@ -14,6 +14,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 
 @Configuration
 @EnableWebSecurity
+// @ComponentScan(basePackages = { "hello" })
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
@@ -25,6 +26,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		// Sét đặt Service tải thông tin các User trong DB.
 		auth.userDetailsService(myUserDetailsService);
 	}
+	
+//	@Override
+//	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//		// Sét đặt Service tải thông tin các User trong DB.
+//		auth.userDetailsService(myUserDetailsService);
+//	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
@@ -59,6 +66,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 
 	// This bean is load the user specific data when form login is used.
+	// Liệu ko có hàm này có đc ko???
 	@Override
 	public UserDetailsService userDetailsService() {
 		return myUserDetailsService;

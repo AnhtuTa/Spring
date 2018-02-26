@@ -28,7 +28,7 @@ public class MyUserAccountDAO extends JdbcDaoSupport {
 
 	public MyUserAccount findById(String id) {
 		String sql = "Select id,email,user_name, first_name,last_name,password,role"
-				+ " from User_Accounts u "
+				+ " from user_accounts u "
 				+ " where id = ? ";
 		MyUserAccountMapper mapper = new MyUserAccountMapper();
 		try {
@@ -40,8 +40,8 @@ public class MyUserAccountDAO extends JdbcDaoSupport {
 	}
 
 	public MyUserAccount findByEmail(String email) {
-		String sql = "Select id, email,user_name,first_name,last_name,/ password,role"
-				+ " from User_Accounts u "
+		String sql = "Select id, email,user_name,first_name,last_name,password,role"
+				+ " from user_accounts u "
 				+ " where email = ? ";
 		Object[] params = new Object[] { email };
 		MyUserAccountMapper mapper = new MyUserAccountMapper();
@@ -55,7 +55,7 @@ public class MyUserAccountDAO extends JdbcDaoSupport {
 
 	public MyUserAccount findByUserName(String userName) {
 		String sql = "Select id, email,user_name,first_name,last_name, password,role"
-				+ " from User_Accounts u "
+				+ " from user_accounts u "
 				+ " where user_name = ? ";
 		Object[] params = new Object[] { userName };
 		MyUserAccountMapper mapper = new MyUserAccountMapper();
@@ -68,7 +68,7 @@ public class MyUserAccountDAO extends JdbcDaoSupport {
 	}
 
 	public MyUserAccount registerNewUserAccount(MyUserAccountForm accountForm) {
-		String sql = "Insert into User_Accounts "
+		String sql = "Insert into user_accounts "
 				+ " (id, email,user_name,first_name,last_name,password,role) "
 				+ " values (?,?,?,?,?,?,?) ";
 
@@ -99,7 +99,7 @@ public class MyUserAccountDAO extends JdbcDaoSupport {
 		}
 
 		// Tạo mới User_Account.
-		String sql = "Insert into User_Accounts "//
+		String sql = "Insert into user_accounts "//
 				+ " (id, email,user_name,first_name,last_name,password,role) "//
 				+ " values (?,?,?,?,?,?,?) ";
 

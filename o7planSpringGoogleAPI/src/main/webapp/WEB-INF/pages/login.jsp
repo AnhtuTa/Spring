@@ -13,8 +13,7 @@
  
     <h2>Social Login</h2>
  
-    <a href="${pageContext.request.contextPath}/auth/facebook">Face
-        Book</a>
+    <a href="${pageContext.request.contextPath}/auth/facebook">Facebook</a>
     <br />
     <a href="${pageContext.request.contextPath}/auth/google">Google</a>
     <br />

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Add employee</title>
+</head>
+<body>
+	<h2>Add Employee</h2>
+	
+	<!-- th:action=”@{/add-employee}”: khai báo action, @{/add-employee} tương 
+	tự với việc mapping url trong spring mvc
+	th:object=”${employee}” tương tự với modelAttribute=“employee” trong 
+	spring mvc form -->
+	<form th:action="@{/add-employee}" th:object="${employee}"
+		method="post">
+		<table>
+			<tr>
+				<td>Id</td>
+				<td><input th:field="*{id}" /></td>
+			</tr>
+			<tr>
+				<td>Name</td>
+				<td><input th:field="*{name}" /></td>
+			</tr>
+			<tr>
+				<td>Address</td>
+				<td><textarea th:field="*{address}"></textarea></td>
+			</tr>
+			<tr>
+				<td>Gender</td>
+				<td>
+					<input type="radio" th:field="*{gender}" th:value="male" />
+					<label th:text="male"></label>
+					<input type="radio" th:field="*{gender}" th:value="female" />
+					<label th:text="female"></label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<ul style="list-style-type: none">
+						<li th:each="fa: ${listFavorite}">
+							<input type="checkbox" th:field="*{favorites}" th:value="${fa}"/>
+							<label th:text="${fa}"></label>
+						</li>
+					</ul>
+				</td>
+			</tr>
+			<tr>
+				<td>Position</td>
+				<td><select th:field="*{position}">
+						<option th:each="ps : ${listPosition}" th:value="${ps}"
+							th:text="${ps}"></option>
+				</select></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" value="Submit" /></td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

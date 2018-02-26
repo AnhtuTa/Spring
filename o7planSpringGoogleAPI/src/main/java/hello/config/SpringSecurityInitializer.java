@@ -4,7 +4,7 @@ import org.springframework.security.web.context.AbstractSecurityWebApplicationIn
 
 //Config: Spring Security Filter.
 public class SpringSecurityInitializer extends AbstractSecurityWebApplicationInitializer {
-
-	// Do nothing
-
+	public SpringSecurityInitializer() {
+		System.out.println("This is SpringSecurityInitializer");
+	}
 }

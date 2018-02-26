@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @Configuration
-@ComponentScan("hello.*")
+@ComponentScan("hello")
 @EnableTransactionManagement
 @PropertySource("classpath:datasource-cfg.properties")	// Load to Environment.
 public class ApplicationContextConfig {

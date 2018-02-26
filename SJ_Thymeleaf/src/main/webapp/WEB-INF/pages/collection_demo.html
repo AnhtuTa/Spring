@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Collection demo</title>
+</head>
+<body>
+	<h1>Collection demo in Thymeleaf</h1>
+	<h3>Display list</h3>
+	<ul th:if="${listUser != null && !listUser.empty}">
+		<li th:each="user: ${listUser}" th:text="${user.id} + ' - ' + ${user.name} + ' - ' + ${user.address}"></li>
+	</ul>
+	
+	<h3>Display set</h3>
+	<ul th:if="${setUser != null && !setUser.empty}">
+		<li th:each="user: ${setUser}" th:text="${user.id} + ' - ' + ${user.name} + ' - ' + ${user.address}"></li>
+	</ul>
+	
+	<h3>Display map</h3>
+	<ul th:if="${mapUser != null && !mapUser.empty}">
+		<li th:each="element: ${mapUser}" th:text="${element.value.id} + ' - ' + ${element.value.name} + ' - ' + ${element.value.address}"></li>
+	</ul>
+	
+	<h3>Display map - another way</h3>
+	<ul th:if="${mapUser != null && !mapUser.empty}">
+		<li th:each="user: ${mapUser.values()}" th:text="${user.id} + ' - ' +  ${user.name} + ' - ' +  ${user.address}"></li>
+	</ul>
+	
+</body>
+</html>

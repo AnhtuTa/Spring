@@ -8,7 +8,6 @@
 	<name>SJ_RESTful</name>
 	<description>RESTful web service, by StackJava</description>
 
-
 	<build>
 		<pluginManagement>
 			<plugins>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Result of adding employee</title>
+</head>
+<body>
+	<h2>Employee</h2>
+	<table>
+		<tr>
+			<td>Id:</td>
+			<td><p th:text="${employee.id}" /></td>
+		</tr>
+		<tr>
+			<td>Name:</td>
+			<td><p th:text="${employee.name}" /></td>
+		</tr>
+		<tr>
+			<td>Address:</td>
+			<td><p th:text="${employee.address}" /></td>
+		</tr>
+		<tr>
+			<td>Email:</td>
+			<td><p th:text="${employee.email}" /></td>
+		</tr>
+		<tr>
+			<td>Gender:</td>
+			<td><p th:text="${employee.gender}" /></td>
+		</tr>
+		<tr>
+			<td>Favorite:</td>
+			<td>
+				<p th:each="fa: ${employee.favorites}" th:text="${fa}"></p>
+			</td>
+		</tr>
+		<tr>
+			<td>Position:</td>
+			<td><p th:text="${employee.position}" /></td>
+		</tr>
+	</table>
+</body>
+</html>

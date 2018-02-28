@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Person List</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+</head>
+<body>
+	<h1>Student List</h1>
+	<a href="add-student">Add Student</a><br /><br />
+	
+	<div>
+		<table border="1">
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Gender</th>
+				<th>Address</th>
+				<th>Faculty</th>
+				<th>Favorite songs</th>
+			</tr>
+			<tr th:each="st: ${students}">
+				<td th:utext="${st.id}"></td>
+				<td th:utext="${st.name}"></td>
+				<td th:utext="${st.gender}"></td>
+				<td th:utext="${st.address}"></td>
+				<td th:utext="${st.faculty}"></td>
+				<td>
+					<ul th:each="song: ${st.favoriteSongs}">
+						<li><b><span th:utext="${song.title}"></span></b> - 
+						<i><span th:utext="${song.artist}"></span></i> -
+						<span th:utext="${song.year}"></span></li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

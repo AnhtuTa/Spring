@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Add Student</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+<style>
+	form div {
+		padding: 5px;
+	}
+</style>
+</head>
+<body>
+	<h1>Create a Student:</h1>
+	<form th:action="@{/add-student}" th:object="${newStudent}" method="POST">
+		<div>ID: <input type="text" th:field="*{id}" /></div>
+		<div>Name: <input type="text" th:field="*{name}" /></div>
+		
+		<!-- Gender -->
+		<div>
+			Gender:
+			<input type="radio" th:field="*{gender}" th:value="male" />
+			<label th:text="male"></label>
+			<input type="radio" th:field="*{gender}" th:value="female" />
+			<label th:text="female"></label>
+		</div>
+		
+		<div>Address: <input type="text" th:field="*{address}" /></div>
+		<div>Faculty: <input type="text" th:field="*{faculty}" /></div>
+		
+		<div>
+			Choose songs:
+			<ul style="list-style-type: none">
+				<li th:each="s: ${songs}">
+					<input type="checkbox" th:field="*{songIdList}" th:value="${s.id}" />
+					<label th:text="${s.info}"></label>
+				</li>
+			</ul>
+			<!-- <select th:field="*{favoriteSongs}">
+				<option th:each="s: ${songs}" th:value="${s}"
+					th:text="${s.info}"></option>
+			</select> -->
+		</div>
+		
+		<div><input type="submit" value="Create" /></div>
+	</form><br />
+
+	<!-- Check if errorMessage is not null and not empty -->
+	<div th:if="${errorMessage}" th:utext="${errorMessage}"
+		style="color: red; font-style: italic;">...</div>
+
+</body>
+</html>

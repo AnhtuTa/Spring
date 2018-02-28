@@ -1,0 +1,21 @@
+h1 {
+	color: #0000FF;
+	font-size: 20px;
+}
+
+h2 {
+	color: #FF0000;
+	font-size: 17px;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table th, table td {
+	padding: 5px;
+}
+
+ul {
+	margin: 3px;
+}

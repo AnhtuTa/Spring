@@ -1,0 +1,1 @@
+﻿project này giống hệt với project o7plan_Interceptor, chỉ khác là cái này là Springboot, do đó giảm bớt các config, và công nghệ view sử dụng là Thymeleaf

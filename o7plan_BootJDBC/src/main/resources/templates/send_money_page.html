@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Bank</title>
+<style>
+th, td, input {
+	padding: 5px;
+}
+.error_msg {
+	color: red;
+}
+</style>
+</head>
+<body>
+	<!-- Include _menu.html -->
+	<th:block th:include="/_menu"></th:block>
+
+	<h2>Send money</h2>
+
+	<div th:if="${errorMessage!=null}" class="error_msg"
+		th:utext="${errorMessage}"></div>
+		
+	<form th:action="@{/send-money}" th:object="${sendMoneyForm}" 
+		method="POST" onsubmit="return validateInput()">
+		<table style="border: 0">
+			<tr>
+				<td>AccountID of sender</td>
+				<td>
+					<input type="text" th:field="*{fromAccountId}"/>
+				</td>
+			</tr>
+			<tr>
+				<td>AccountID of receiver</td>
+				<td>
+					<input type="text" th:field="*{toAccountId}" />
+				</td>
+			</tr>
+			<tr>
+				<td>Amount of money to send</td>
+				<td>
+					<input type="text" th:field="*{amount}" required="required"/>
+				</td>
+			</tr>
+		</table>
+		<input type="submit" value="Send" />
+	</form>
+	
+	<script type="text/javascript">
+		function validateInput() {
+			var fromId = document.getElementById("fromAccountId").value;
+			var toId = document.getElementById("toAccountId").value;
+			var regex = /\d+/g;
+			var b2 = regex.test(toId);
+			console.log("regex = " + regex);
+			
+			var regex2 = /\d+/g;
+			var b1 = regex2.test(fromId);
+			console.log("fromId = " + fromId);
+			console.log("toId = " + toId);
+			console.log(b1);
+			console.log(b2);
+			
+			if(!b1 || !b2) return false;
+			else return true;
+			
+			
+			// KHÔNG dùng đc như sau, vì ko đc viết 2 ký hiệu &amp; liền nhau trong Spring view!
+			//return b1 &amp;&amp; b2;
+			
+			//if(!b1 || !b2) return false;
+			//return true;
+			
+			//return regex.test(fromId) &amp;&amp; (regex.test(toId)==true);
+		}
+	</script>
+</body>
+</html>

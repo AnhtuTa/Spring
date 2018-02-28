@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Welcome</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+</head>
+<body>
+	<h1>Welcome</h1>
+	<h2 th:utext="${message}">..!..</h2>
+
+	<!--  
+         In Thymeleaf the equivalent of
+         JSP's ${pageContext.request.contextPath}/edit.html
+         would be @{/edit.html}
+    -->
+	<!-- Trong các file mẫu (Template file) có các Thymeleaf Marker 
+    (Các đánh dấu của Thymeleaf), chúng là các chỉ dẫn giúp 
+    Thymeleaf Engine chế biến dữ liệu. 
+	Thymeleaf Engine phân tích file mẫu (Template file), và 
+	kết hợp với các dữ liệu Java để tạo ra (generate) một tài liệu mới. -->
+
+
+	<a th:href="@{/person-list}">Person List</a>
+	<a th:href="@{/student-list}">Student List</a>
+
+</body>
+</html>
+
+<!--
+Dưới đây là các ví dụ để sử dụng Context-Path trong Thymeleaf:
+
+Example 1:
+<a th:href="@{/mypath/abc.html}">A Link</a>
+Output: ==>
+<a href="/my-context-path/mypath/abc.html">A Link</a>
+
+
+Example 2:
+<form th:action="@{/mypath/abc.html}" th:object="${personForm}"
+	method="POST">
+Output: ==>
+<form action="/my-context-path/mypath/abc.html" method="POST">
+-->
+		

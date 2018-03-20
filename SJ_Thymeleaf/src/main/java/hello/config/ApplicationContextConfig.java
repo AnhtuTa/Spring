@@ -59,6 +59,7 @@ public class ApplicationContextConfig {
 	public ViewResolver viewResolver() {
 		ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
 		viewResolver.setTemplateEngine(templateEngine());
+		//viewResolver.setCharacterEncoding("UTF-8");
 		return viewResolver;
 	}
 	

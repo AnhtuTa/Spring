@@ -12,7 +12,8 @@ import hello.entity.Student;
 
 /*
  * Ví dụ này đéo liên quan đến App.java, nó chả cần config gì cả, chỉ cần
- * mỗi thằng Student.java thôi!
+ * mỗi thằng Student.java thôi! Nói cách khác: nó KHÔNG liên quan đến Spring,
+ * chỉ là Java bình thường
  */
 public class App2 {
 	public static final String DB_NAME = "anhtudb";

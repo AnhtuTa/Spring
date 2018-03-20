@@ -10,6 +10,11 @@ import hello.config.MongoConfig;
 import hello.entity.Student;
 import hello.repo.StudentRepository;
 
+/*
+ * Class này dùng interface StudentRepository để thực hiện CRUD
+ * class StudentRepository extends thằng MongoRepository
+ * và thêm 1 vài phương thức mở rộng 
+ */
 public class App {
 	public static void main(String[] args) {
 		ApplicationContext context = 

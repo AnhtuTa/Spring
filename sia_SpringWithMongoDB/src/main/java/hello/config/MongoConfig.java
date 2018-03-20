@@ -25,25 +25,27 @@ import hello.repo.StudentRepository;
  */
 
 @Configuration
-@EnableMongoRepositories(basePackageClasses=StudentRepository.class,
-	repositoryImplementationPostfix="Impl")		//tự động sinh các mongo repository
+@EnableMongoRepositories(basePackageClasses = StudentRepository.class, repositoryImplementationPostfix = "Impl") 
+// tự động sinh các mongo repository
 // bằng việc scan package hello.repo
-// Chú ý: repositoryImplementationPostfix mặc định = "Impl", do đó ko cần dòng này cũng đc
+// Chú ý: repositoryImplementationPostfix mặc định = "Impl", do đó ko cần dòng
+// này cũng đc
 public class MongoConfig extends AbstractMongoConfiguration {
-//	@Bean
-//	public MongoFactoryBean mongo() {
-//		MongoFactoryBean mongo = new MongoFactoryBean();
-//		mongo.setHost("localhost");
-//		return mongo;
-//	}
-//
-//	@Bean
-//	public MongoOperations mongoTemplate(Mongo mongo) {
-//		return new MongoTemplate(mongo, "OrdersDB");
-//	}
+	// @Bean
+	// public MongoFactoryBean mongo() {
+	// MongoFactoryBean mongo = new MongoFactoryBean();
+	// mongo.setHost("localhost");
+	// return mongo;
+	// }
+	//
+	// @Bean
+	// public MongoOperations mongoTemplate(Mongo mongo) {
+	// return new MongoTemplate(mongo, "OrdersDB");
+	// }
 
 	// Rather than declare these above beans directly, the configuration class could
-	// extend AbstractMongoConfiguration and override its getDatabaseName() and mongo() methods.
+	// extend AbstractMongoConfiguration and override its getDatabaseName() and
+	// mongo() methods.
 	@Override
 	protected String getDatabaseName() {
 		return "anhtudb"; // Specify database name
@@ -62,4 +64,33 @@ public class MongoConfig extends AbstractMongoConfiguration {
 	 * throws Exception, you can work with MongoClient directly without working with
 	 * MongoFactoryBean.
 	 */
+
+	// Các phần trên là trong sách SIA, phần dưới tham khảo ở chỗ khác:
+	
+	@Override
+	protected String getMappingBasePackage() {
+		return "hello";
+	}
+	
+	/*
+	Note: We didn’t need to define MongoTemplate bean as it’s already 
+	defined in AbstractMongoConfiguration
+
+	We can also use our configuration from scratch without 
+	extending AbstractMongoConfiguration – as follows
+	@Configuration
+	public class SimpleMongoConfig {
+
+	    @Bean
+	    public Mongo mongo() throws Exception {
+	        return new MongoClient("localhost");
+	    }
+	 
+	    @Bean
+	    public MongoTemplate mongoTemplate() throws Exception {
+	        return new MongoTemplate(mongo(), "test");
+	    }
+	}
+	
+	*/
 }

@@ -1,0 +1,369 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+ 
+html, body {
+    height: 100%;
+    /* overflow: hidden; */
+}
+
+.nickname  {
+    color: #5f5f5f;
+    margin-bottom: 3px;
+    margin-top: 7px;
+}
+.hidden {
+    display: none;
+}
+ 
+.chat-header {
+    padding: 5px;
+    text-align: right;
+    position: relative;
+}
+.room_name {
+	/* position: absolute;
+	left: 5px;	bằng với padding của .chat-header
+    top: 6px; */
+    position: relative;
+    left: -13px;
+    width: calc(100% - 65px);
+    font-size: 15px;
+    border: 0;
+    background: #fff;
+    padding: 3px;
+}
+
+#login-page {
+    text-align: center;
+}
+ 
+#chat-container {
+    background-color: #ffffff;
+    height: 100%;
+    position: relative;
+    float: left;
+    width: 55%;
+}
+
+.msg-area-wrapper {
+	overflow-y: auto;  /* nếu để là scroll thì nó sẽ hiện thanh scroll 
+    dù chưa overflow. Nếu để auto thì nó chỉ hiện thanh scroll khi overflow */
+    height: calc(100% - 133px);
+    padding: 0 13px;
+    margin: 0;
+}
+#chat-container ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+  
+#chat-container #messageForm {
+    padding: 10px 76px 10px 10px;
+    margin-top: 15px;
+    margin-bottom: 0;
+    position: relative;
+    border-top: 1px solid #d2d2d2;
+    padding-top: 10px;
+    background: #fff;
+}
+ 
+#chat-container ul li {
+    line-height: 1.3rem;
+    /* line-height: 1rem; */
+    padding: 3px 0px;
+    margin: 0;
+    /* border-bottom: 1px solid #f4f4f4; */
+}
+ 
+#chat-container ul li p {
+    margin: 0;
+}
+ 
+#chat-container .event-message {
+    width: 100%;
+    text-align: center;
+    clear: both;
+}
+ 
+#chat-container .event-message p {
+    color: #777;
+    font-size: 14px;
+    word-wrap: break-word;
+}
+ 
+#chat-container .chat-message {
+    position: relative;
+}
+ 
+#messageForm .input-message  {
+    float: left;
+    /* width: calc(100% - 85px); */
+    width: 100%;
+}
+ 
+.connecting {
+    text-align: center;
+    color: #777;
+    width: 100%;
+}
+
+.my_error {
+	color: red;
+}
+/* .message_input {
+	font-size: 15px;
+    width: 100%;
+    padding: 9px;
+    border: 1px solid #b9b9b9;
+    border-radius: 2px;
+} */
+.message_input .emojionearea-editor {
+	/* font-size: 15px;
+    width: 100%;
+    padding: 9px;
+    border: 1px solid #b9b9b9;
+    border-radius: 2px; */
+    
+    min-height: 38px !important;
+    max-height: 7em !important;
+    padding: 35px 24px 6px 6px !important;
+}
+.your-message-item {
+	text-align: right;
+}
+.friend-message-item {
+	text-align: left;
+}
+.your-name {
+	padding-right: 7px;
+}
+.friend-name {
+	padding-left: 7px;
+}
+.message-content {
+	max-width: 80%;
+    padding: 7px;
+    display: inline-block;
+    border-radius: 5px;
+    word-wrap: break-word;
+    position: relative;
+    font-size: 15px;
+}
+.message-content .emojione {
+	height: 20px;
+    vertical-align: bottom;
+    margin: -.2ex .1em .2ex;
+}
+.your-message-content {
+	background: #5eaded;
+    color: #fff;
+}
+.friend-message-content {
+	background: #dddddd;
+}
+.someone-join, .someone-leave {
+	display: block;
+    max-width: 100%;
+    background: #f2f2f2;
+}
+.someone-join {
+    color: #5eaded;
+}
+.someone-leave {
+    color: #e40000;
+}
+.btn-send {
+	position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 60px;
+    font-size: 15px;
+    padding: 9px 10px;
+    border: 1px solid #5495ff;
+}
+#tooltip_edit_room_name {
+	position: absolute;
+    left: 4px;
+    top: 31px;
+    display: inline-block;
+    background: #FFEB3B;
+    border-top: 0;
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 13px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.your-message-time, .friend-message-time {
+	position: absolute;
+    color: #5f5f5f;
+    top: 8px;
+    font-size: 13px;
+}
+.your-message-time {
+    left: -85px;
+}
+.friend-message-time {
+    right: -85px;
+}
+
+.btn-show-older-msg {
+	width: 100%;
+    text-align: center;
+    margin: 10px 0;
+    background: #8fd044;
+    font-size: 13px;
+}
+.fullname {
+	color: #4CAF50;
+    font-weight: bold;
+}
+				
+.conversation-list-section {
+	float: left;
+	width: 25%;
+	height: 100%;
+    overflow: auto;
+    padding: 5px;
+}
+
+.participant-list-section {
+	float: left;
+    width: 20%;
+    height: 100%;
+    overflow: auto;
+}
+
+.img-message {
+	min-width: 30px;
+    max-width: 150px;
+    cursor: pointer;
+}
+.sticker-picker, .gif-picker {
+    position: absolute;
+    margin-top: -270px;
+    background: #FFF;
+    -moz-box-shadow: 0 1px 5px rgba(0,0,0,.32);
+    -webkit-box-shadow: 0 1px 5px rgba(0,0,0,.32);
+    box-shadow: 0 1px 5px rgba(0,0,0,.32);
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    height: 276px;
+    width: 316px;
+    top: -15px;
+    z-index: 5;
+    -moz-transition: all .25s ease-in-out;
+    -o-transition: all .25s ease-in-out;
+    -webkit-transition: all .25s ease-in-out;
+    transition: all .3s ease-in-out;
+    filter: alpha(Opacity=0);
+}
+.sticker-picker:after, .gif-picker:after {
+	content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: -10px;
+    box-sizing: border-box;
+    border: 6px solid black;
+    border-color: transparent transparent #ffffff #ffffff;
+    transform-origin: 0 0;
+    transform: rotate(-45deg);
+    box-shadow: -2px 2px 2px 0 rgba(0, 0, 0, 0.2);
+    transition: all .3s ease-in-out;
+}
+.sticker-picker:after {
+    left: 34px;
+}
+.gif-picker:after {
+    left: 65px;
+}
+
+/************ tab ***************/
+#tab_sticker_wrapper {
+    height: 100%;
+}
+/* Style the tab */
+.tablink_wrapper {
+	overflow: hidden;
+	border: 1px solid #ccc;
+	background-color: #f1f1f1;
+}
+/* Style the buttons that are used to open the tab content */
+.tablink_wrapper .tablink {
+	background-color: inherit;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	/* padding: 14px 16px; */
+	height: 40px;
+    width: 40px;
+	transition: 0.3s;
+	display: inline-block;
+}
+/* Change background color of buttons on hover */
+.tablink_wrapper .tablink:hover {
+	background-color: #ddd;
+}
+/* Create an active/current tablink class */
+.tablink_wrapper .tablink.active {
+	background-color: #ccc;
+}
+/* Style the tab content */
+.tabcontent {
+	display: none;
+	padding: 6px 12px;
+	border: 1px solid #ccc;
+	border-top: none;
+	animation: fadeEffect 1s; /* Fading effect takes 1 second */
+	height: calc(100% - 42px);
+    overflow-y: auto;
+}
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+.tablink img {
+	height: 40px;
+    width: 40px;
+}
+/************ end of tab ***************/
+
+/****** grid ********/
+.grid-container {
+	display: grid;
+	grid-template-columns: auto auto auto;
+}
+.grid-item {
+	background-color: rgba(255, 255, 255, 0.8);
+	/* border: 1px solid rgba(0, 0, 0, 0.8); */
+	padding: 5px;
+	font-size: 30px;
+	text-align: center;
+	position: relative;
+    height: 85px;
+}
+.grid-item img {
+	width: 82px;
+	opacity: 0.9;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.grid-item img:hover {
+	opacity: 1;
+}
+.like-sticker {
+	width: 70px;
+}

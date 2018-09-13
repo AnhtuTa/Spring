@@ -1,0 +1,93 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>bkhn.att</groupId>
+	<artifactId>o7plan_HibernateTutorial</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>HibernateTutorial</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<hibernate.version>5.2.17.Final</hibernate.version>
+		<mysql-connector.version>6.0.6</mysql-connector.version>
+		<flyway.version>5.0.7</flyway.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<database.driver>com.mysql.jdbc.Driver</database.driver>
+		<database.url>jdbc:mysql://localhost:3306/simplehr?autoreconnect=true</database.url>
+		<database.username>root</database.username>
+		<database.password>5555</database.password>
+	</properties>
+
+	<repositories>
+		<!-- Repository for ORACLE JDBC Driver -->
+		<repository>
+			<id>codelds</id>
+			<url>https://code.lds.org/nexus/content/groups/main-repo</url>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Hibernate Core -->
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+
+		<!-- http://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql-connector.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+			<version>${flyway.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-maven-plugin</artifactId>
+				<version>5.1.4</version>
+				<configuration>
+					<driver>${database.driver}</driver>
+					<url>${database.url}</url>
+					<user>${database.username}</user>
+					<password>${database.password}</password>
+					<locations>
+						<location>classpath:db/migration</location>
+					</locations>
+					<encoding>UTF-8</encoding>
+					<!-- <cleanOnValidationError>true</cleanOnValidationError> -->
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.7.0</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

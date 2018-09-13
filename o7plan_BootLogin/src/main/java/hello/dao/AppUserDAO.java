@@ -31,7 +31,7 @@ public class AppUserDAO extends JdbcDaoSupport {
 
 	public AppUser findUserAccount(String userName) {
 		try {
-			String sql = "SELECT u.user_id, u.user_name, u.encryted_password"
+			String sql = "SELECT u.user_id, u.user_name, u.encrypted_password"
 					+ " FROM app_user u WHERE u.user_name = ?";
 			return this.getJdbcTemplate().queryForObject(sql, new Object[] { userName }, 
 					new AppUserMapper());

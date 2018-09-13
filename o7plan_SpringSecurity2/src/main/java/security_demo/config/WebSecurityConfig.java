@@ -66,8 +66,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 				.and().logout().logoutUrl("/logout").logoutSuccessUrl("/logoutSuccessful");
 	}
 
+	// Chỉ cần thằng này khi dùng Các User trong bộ nhớ (IN-MEMORY).
 	//@Bean(name="passwordEncoder")
-	// Chắc ko cần annotation @Bean
 //	public PasswordEncoder pwEncorder() {
 //		return new BCryptPasswordEncoder();
 //	}

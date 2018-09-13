@@ -14,27 +14,36 @@
 </head>
 <body>
 	<h2>add-user.jsp</h2>
-	<form:form action="add-user" method="POST" modelAttribute="user">
-    Id: <form:input path="id" />
-		<form:errors path="id" cssClass="error" />
-		<br />
-		<br />
-    Name: <form:input path="name" />
-		<form:errors path="name" cssClass="error" />
-		<br />
-		<br />
-    Email: <form:input path="email" />
-		<form:errors path="email" cssClass="error" />
-		<br />
-		<br />
-    Phone Number: <form:input path="phoneNumber" />
-		<form:errors path="phoneNumber" cssClass="error" />
-		<br />
-		<br />
-    Date Of Birth: <form:input path="dateOfBirth" />
-		<form:errors path="dateOfBirth" cssClass="error" />
-		<br />
-		<button type="submit">Submit</button>
-	</form:form>
+	<table>
+		<form:form action="add-user" method="POST" modelAttribute="user">
+		<tr>
+		    <td>Id</td>
+		    <td><form:input path="id" />
+		    	<form:errors path="id" cssClass="error" /></td>
+		</tr>
+		<tr>
+		    <td>Name</td>
+		    <td><form:input path="name" />
+				<form:errors path="name" cssClass="error" /></td>
+		</tr>
+		    <td>Email</td>
+		    <td><form:input path="email" />
+				<form:errors path="email" cssClass="error" /></td>
+		<tr>
+			<td>Phone Number</td>
+			<td><form:input path="phoneNumber" />
+				<form:errors path="phoneNumber" cssClass="error" /></td>
+		</tr>
+		<tr>
+		    <td>Date Of Birth</td>
+		    <td><form:input path="dateOfBirth" />
+				<form:errors path="dateOfBirth" cssClass="error" /></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><button type="submit">Submit</button></td>
+		</tr>
+		</form:form>
+	</table>
 </body>
 </html>

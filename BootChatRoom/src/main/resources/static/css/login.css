@@ -1,0 +1,68 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.my_error {
+	color: red;
+	text-align: center;
+	font-size: 15px;
+}
+
+#login-container {
+    background: #f4f6f6;
+    border: 2px solid #ccc;
+    width: 100%;
+    max-width: 350px;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 35px 50px;
+    min-height: 345px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    margin-top: -175px;
+    box-sizing: border-box;
+}
+
+#loginForm {
+	margin-top: 20px;
+}
+
+.input_username, .input_password {
+	padding: 10px;
+	margin: 7px 0;
+	width: 100%;
+	border: 0;
+	padding-left: 33px;
+}
+
+.title {
+	text-align: center;
+}
+
+.btn-login {
+	margin-top: 5px;
+	width: 100%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.div-register {
+	/* position: absolute;
+	left: 0; */
+	margin-top: 20px;
+	text-align: center;
+	width: 100%;
+	font-size: 14px;
+}
+
+.div-rememberme {
+	margin: 7px 0;
+}
+
+.checkmark {
+	background-color: #dfdfdf;
+}

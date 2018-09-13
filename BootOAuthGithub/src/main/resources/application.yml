@@ -1,0 +1,21 @@
+security:
+  oauth2:
+    client:
+      client-id: att
+      client-secret: attsecret
+      scope: read,write
+      auto-approve-scopes: '.*'
+      
+github:
+  client:
+    clientId: aa5862f0cff5cd19c476
+    clientSecret: a875bbe1818106e92583fb6865a95d51912835cc
+    accessTokenUri: https://github.com/login/oauth/access_token
+    userAuthorizationUri: https://github.com/login/oauth/authorize
+    clientAuthenticationScheme: form
+  resource:
+    userInfoUri: https://api.github.com/user
+  
+logging:
+  level:
+    org.springframework.security: DEBUG

@@ -1,0 +1,177 @@
+/*============= These styles from o7planning ===============*/
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+ 
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+  
+#login-page {
+    text-align: center;
+}
+ 
+.nickname  {
+    color: #a7a7a7;
+    /* margin-right:20px; */
+}
+.hidden {
+    display: none;
+}
+ 
+.user-container {
+    padding: 5px;
+    text-align: right;
+}
+ 
+#login-container {
+    background: #f4f6f6 ;
+    border: 2px solid #ccc;
+    width: 100%;
+    max-width: 500px;
+    display: inline-block;
+    margin-top: 42px;
+    vertical-align: middle;
+    position: relative;
+    padding: 35px 55px 35px;
+    min-height: 250px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    margin-top: -160px;
+}
+ 
+#chat-container {
+    background-color:  #ffffff ;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+     
+    margin-top: 10px;
+    height: calc(100% - 60px);
+    max-height: 600px;
+    position: relative;
+     
+}
+ 
+#chat-container ul {
+    list-style-type: none;
+    background-color: #fff;
+    margin: 0;
+    overflow: auto;
+    overflow-y: auto;	/* nếu để là scroll thì nó sẽ hiện thanh scroll 
+    dù chưa overflow. Nếu để auto thì nó chỉ hiện thanh scroll khi overflow */
+    padding: 0 20px 0px 20px;
+    height: calc(100% - 87px);
+}
+  
+#chat-container #messageForm {
+    padding: 0 10px;
+    margin-top: 15px;
+    position: relative;
+    height: 57px;
+    padding-right: 76px;
+    border-top: 1px solid #d2d2d2;
+    padding-top: 10px;
+    background: #fff;
+}
+ 
+#chat-container ul li {
+    /* line-height: 1.3rem; */
+    padding: 3px 0px;
+    margin: 0;
+    /* border-bottom: 1px solid #f4f4f4; */
+}
+ 
+#chat-container ul li p {
+    margin: 0;
+}
+ 
+#chat-container .event-message {
+    width: 100%;
+    text-align: center;
+    clear: both;
+}
+ 
+#chat-container .event-message p {
+    color: #777;
+    font-size: 14px;
+    word-wrap: break-word;
+}
+ 
+#chat-container .chat-message {
+    position: relative;
+}
+ 
+#messageForm .input-message  {
+    float: left;
+    /* width: calc(100% - 85px); */
+    width: 100%;
+}
+ 
+.connecting {
+    text-align: center;
+    color: #777;
+    width: 100%;
+}
+
+.my_error {
+	color: red;
+}
+.message_input {
+	font-size: 15px;
+    width: 100%;
+    padding: 9px;
+    border: 1px solid #b9b9b9;
+    border-radius: 2px;
+}
+.your-message-item {
+	text-align: right;
+}
+.friend-message-item {
+	text-align: left;
+}
+.your-name {
+	padding-right: 7px;
+}
+.friend-name {
+	padding-left: 7px;
+}
+.message-content {
+	max-width: 80%;
+    padding: 7px;
+    display: inline-block;
+    border-radius: 5px;
+}
+.your-message-content {
+	background: #5eaded;
+    color: #fff;
+}
+.friend-message-content {
+	background: #dddddd;
+}
+.someone-join, .someone-leave {
+	display: block;
+    max-width: 100%;
+    background: #f2f2f2;
+}
+.someone-join {
+    color: #5eaded;
+}
+.someone-leave {
+    color: #e40000;
+}
+.btn-send {
+	position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 60px;
+    font-size: 15px;
+    padding: 9px 10px;
+    border: 1px solid #5495ff;
+}

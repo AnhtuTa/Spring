@@ -8,20 +8,22 @@ import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 
 /*
- * A performance isn’t a performance without an audience. Or is it? When you think
-about it from the perspective of a performance, an audience is important but isn’t
-central to the function of the performance itself; it’s a separate concern. Therefore, it
-makes sense to define the audience as an aspect that’s applied to a performance
- */
-
-/*
- *  Audience class is annotated with @Aspect. This annotation indicates
-that Audience isn’t just any POJO—it’s an aspect
- * Audience has four methods that define things an audience might do as it observes
-a performance. Before the performance, the audience should take their seats
-(takeSeats()) and silence their cell phones (silenceCellPhones()). If the performance goes well, the audience should applaud (applause()). But if the performance
-fails to meet the audience’s expectations, then the audience should demand a refund
-(demandRefund()).
+ * A performance isn’t a performance without an audience. Or is it? 
+ * When you think about it from the perspective of a performance, 
+ * an audience is important but isn’t central to the function of 
+ * the performance itself; it’s a separate concern. Therefore, it
+ * makes sense to define the audience as an aspect that’s applied 
+ * to a performance
+ * 
+ * Audience class is annotated with @Aspect. This annotation indicates
+ * that Audience isn’t just any POJO—it’s an aspect
+ * Audience has four methods that define things an audience might 
+ * do as it observes a performance. Before the performance, the audience 
+ * should take their seats (takeSeats()) and silence their cell phones 
+ * (silenceCellPhones()). If the performance goes well,  the audience 
+ * should applaud (applause()). But if the performance fails to meet 
+ * the audience’s expectations, then the audience should demand a 
+ * refund (demandRefund()).
  */
 @Aspect
 public class Audience {
@@ -30,7 +32,7 @@ public class Audience {
 	public void performance() {}
 	
 	//Before performance
-	@Before("performance()")	//Chú ý: cần có dấu cách sau dấu **
+	@Before("performance()")
 	public void silenceCellPhones() {
 		System.out.println("\n[Advice] Starting an performance...\n[Advice] Audiences now are silenceing their cell phones");
 	}

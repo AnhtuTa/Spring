@@ -23,6 +23,9 @@ public class UserController {
 	public String doGetAddUser(Model model) {
 		if (!model.containsAttribute("user")) {
 			model.addAttribute("user", new User());
+		} else {
+			/// chả bao giờ thấy nó vào đây :v
+			System.out.println("user object is existed");
 		}
 		return "add_user";
 	}

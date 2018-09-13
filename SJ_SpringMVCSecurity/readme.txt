@@ -1,0 +1,1 @@
+Ví dụ này dùng Java config, nhưng trên StackJava dùng xml config!

@@ -1,0 +1,29 @@
+Trong JPA mỗi một lớp Entity sẽ tương ứng với một bảng trong cơ sở dữ liệu. 
+Có rất nhiều bảng trong cơ sở dữ liệu vì vậy sẽ có rất nhiều lớp Entity. 
+Bạn thường xuyên phải làm việc với các Entity, và phải viết các lớp DAO 
+( Data Access Object) để thao tác với dữ liệu thông qua các Entity này, 
+đây thực sự là một công việc nhàn chán.
+
+OK, tôi sẽ nói với bạn vì sao nó lại nhàn chán, hãy tưởng tượng bạn có 2 
+bảng trong cơ sở dữ liệu là EMPLOYEE & DEPARTMENT, và bạn có 2 lớp Entity 
+tương ứng là Employee & Department.
+Để thao tác với Employee bạn viết một lớp DAO bao gồm các phương thức 
+tương tự như sau:
+	Employee findById(Long id)
+	List<Employee> findAll()
+	List<Employee> findByName(String likeName)
+	.....
+
+Tất nhiên để thao tác với Department bạn cũng làm điều tương tự, và nếu 
+số lượng Entity quá nhiều nó sẽ làm mất rất nhiều thời gian của bạn.
+
+Spring Data JPA là một thư viện của Spring. Theo quy tắc của Spring Data JPA 
+bạn chỉ cần định nghĩa một interface mở rộng interface Repository<T,ID>, 
+và khai báo tên các phương thức để thao tác với dữ liệu của Entity này. 
+Spring Data JPA sẽ tự tạo một lớp thi hành (implements) interface đó cho bạn
+
+Trong ví dụ này sử dụng JpaRepository thay vì Repository, vì thằng
+JpaRepository extends từ thằng Repository nên cũng như nhau cả!
+
+Xem thêm: https://o7planning.org/vi/11897/huong-dan-spring-boot-va-spring-data-jpa
+(Còn nhiều thứ trên o7plan mà ở project này không có)

@@ -1,0 +1,29 @@
+
+                                                                                                                                                                                        
+                                                                                                                                                                                        
+   SSSSSSSSSSSSSSS                                         iiii                                            BBBBBBBBBBBBBBBBB                                              tttt          
+ SS:::::::::::::::S                                       i::::i                                           B::::::::::::::::B                                          ttt:::t          
+S:::::SSSSSS::::::S                                        iiii                                            B::::::BBBBBB:::::B                                         t:::::t          
+S:::::S     SSSSSSS                                                                                        BB:::::B     B:::::B                                        t:::::t          
+S:::::S           ppppp   ppppppppp   rrrrr   rrrrrrrrr  iiiiiiinnnn  nnnnnnnn       ggggggggg   ggggg       B::::B     B:::::B   ooooooooooo      ooooooooooo   ttttttt:::::ttttttt    
+S:::::S           p::::ppp:::::::::p  r::::rrr:::::::::r i:::::in:::nn::::::::nn    g:::::::::ggg::::g       B::::B     B:::::B oo:::::::::::oo  oo:::::::::::oo t:::::::::::::::::t    
+ S::::SSSS        p:::::::::::::::::p r:::::::::::::::::r i::::in::::::::::::::nn  g:::::::::::::::::g       B::::BBBBBB:::::B o:::::::::::::::oo:::::::::::::::ot:::::::::::::::::t    
+  SS::::::SSSSS   pp::::::ppppp::::::prr::::::rrrrr::::::ri::::inn:::::::::::::::ng::::::ggggg::::::gg       B:::::::::::::BB  o:::::ooooo:::::oo:::::ooooo:::::otttttt:::::::tttttt    
+    SSS::::::::SS  p:::::p     p:::::p r:::::r     r:::::ri::::i  n:::::nnnn:::::ng:::::g     g:::::g        B::::BBBBBB:::::B o::::o     o::::oo::::o     o::::o      t:::::t          
+       SSSSSS::::S p:::::p     p:::::p r:::::r     rrrrrrri::::i  n::::n    n::::ng:::::g     g:::::g        B::::B     B:::::Bo::::o     o::::oo::::o     o::::o      t:::::t          
+            S:::::Sp:::::p     p:::::p r:::::r            i::::i  n::::n    n::::ng:::::g     g:::::g        B::::B     B:::::Bo::::o     o::::oo::::o     o::::o      t:::::t          
+            S:::::Sp:::::p    p::::::p r:::::r            i::::i  n::::n    n::::ng::::::g    g:::::g        B::::B     B:::::Bo::::o     o::::oo::::o     o::::o      t:::::t    tttttt
+SSSSSSS     S:::::Sp:::::ppppp:::::::p r:::::r           i::::::i n::::n    n::::ng:::::::ggggg:::::g      BB:::::BBBBBB::::::Bo:::::ooooo:::::oo:::::ooooo:::::o      t::::::tttt:::::t
+S::::::SSSSSS:::::Sp::::::::::::::::p  r:::::r           i::::::i n::::n    n::::n g::::::::::::::::g      B:::::::::::::::::B o:::::::::::::::oo:::::::::::::::o      tt::::::::::::::t
+S:::::::::::::::SS p::::::::::::::pp   r:::::r           i::::::i n::::n    n::::n  gg::::::::::::::g      B::::::::::::::::B   oo:::::::::::oo  oo:::::::::::oo         tt:::::::::::tt
+ SSSSSSSSSSSSSSS   p::::::pppppppp     rrrrrrr           iiiiiiii nnnnnn    nnnnnn    gggggggg::::::g      BBBBBBBBBBBBBBBBB      ooooooooooo      ooooooooooo             ttttttttttt  
+                   p:::::p                                                                    g:::::g                                                                                   
+                   p:::::p                                                        gggggg      g:::::g                                                                                   
+                  p:::::::p                                                       g:::::gg   gg:::::g                                                                                   
+                  p:::::::p                                                        g::::::ggg:::::::g                                                                                   
+                  p:::::::p                                                         gg:::::::::::::g                                                                                    
+                  ppppppppp                                                           ggg::::::ggg                                                                                      
+                                                                                         gggggg                                                                                         
+
+Source: http://patorjk.com/software/taag/#p=display&f=Doh&t=Spring%20Boot
+ ========>>>   Spring Boot${spring-boot.formatted-version} ${Ansi.DEFAULT}  <<<=========

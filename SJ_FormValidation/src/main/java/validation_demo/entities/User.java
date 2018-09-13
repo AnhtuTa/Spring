@@ -20,6 +20,7 @@ cạnh annotation, nếu không tìm thấy cả 2 chỗ trên thì nó
 sẽ thấy message mặc định của hibernate-validator và validation-api.
  */
 public class User {
+	//Nó tìm message trong file messages_en.properties trước. Nếu ko có nó mới lấy message này
 	@NotNull(message = "Id must be not null")
 	private Integer id;
 	

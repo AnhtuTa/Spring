@@ -52,7 +52,7 @@ public class MyUserDetailsService implements UserDetailsService {
 			}
 		}
 		
-		return (UserDetails) new User(appUser.getUserName(), appUser.getEncrytedPassword(),
+		return (UserDetails) new User(appUser.getUserName(), appUser.getEncryptedPassword(),
 				grantList);
 	}
 

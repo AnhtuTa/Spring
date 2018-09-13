@@ -1,0 +1,7 @@
+.this_is_a_demo {
+	color: blue;
+	margin: 10px;
+	padding: 20px;
+}
+
+/* Không thể truy cập file này nếu deploy lên tomcat, vì khi đó có thêm context-path */

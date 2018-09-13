@@ -7,16 +7,16 @@ package hello.model;
 public class AppUser {
 	private Long userId;
 	private String userName;
-	private String encrytedPassword;
+	private String encryptedPassword;
 
 	public AppUser() {
 
 	}
 
-	public AppUser(Long userId, String userName, String encrytedPassword) {
+	public AppUser(Long userId, String userName, String encryptedPassword) {
 		this.userId = userId;
 		this.userName = userName;
-		this.encrytedPassword = encrytedPassword;
+		this.encryptedPassword = encryptedPassword;
 	}
 
 	public Long getUserId() {
@@ -35,16 +35,16 @@ public class AppUser {
 		this.userName = userName;
 	}
 
-	public String getEncrytedPassword() {
-		return encrytedPassword;
+	public String getEncryptedPassword() {
+		return encryptedPassword;
 	}
 
-	public void setEncrytedPassword(String encrytedPassword) {
-		this.encrytedPassword = encrytedPassword;
+	public void setEncryptedPassword(String encryptedPassword) {
+		this.encryptedPassword = encryptedPassword;
 	}
 
 	@Override
 	public String toString() {
-		return this.userName + "/" + this.encrytedPassword;
+		return this.userName + "/" + this.encryptedPassword;
 	}
 }

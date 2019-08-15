@@ -1,13 +1,13 @@
-package tama;
+package hello;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TamaBeApplication {
+public class LilianaPlayerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TamaBeApplication.class, args);
+		SpringApplication.run(LilianaPlayerApplication.class, args);
 	}
 
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,7 +14,7 @@ import hello.service.BookService;
 
 @RestController
 @RequestMapping("/api/book")
-@PreAuthorize("hasRole('ROLE_USER')")
+@PreAuthorize("hasAuthority('USER')")
 public class BookController {
 
     @Autowired
@@ -24,4 +25,8 @@ public class BookController {
         return bookService.getAllBooks();
     }
 
+    @GetMapping(value = "/{id}")
+    public Book getBook(@PathVariable("id") int id) {
+        return bookService.getBook(id);
+    }
 }

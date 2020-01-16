@@ -1,6 +1,7 @@
 package hello.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -16,10 +17,11 @@ import org.springframework.security.oauth2.provider.token.store.InMemoryTokenSto
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 
     private static final String CLIENT_ID = "clientId";
-    private static final String CLIENT_SECRET = "secret@tuzaku";
+    private static final String CLIENT_SECRET = "{noop}secret@tuzaku";
     private static final String RESOURCE_ID = "resource_id";
 
     @Autowired
+    @Qualifier("authenticationManagerBean")
     private AuthenticationManager authenticationManager;
 
     @Autowired
@@ -30,7 +32,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         clients.inMemory()
                 .withClient(CLIENT_ID)
                 .authorizedGrantTypes("password", "authorization_code", "refresh_token", "implicit")
-                //.authorities("ROLE_CLIENT", "ROLE_TRUSTED_CLIENT", "USER")
+                .authorities("ROLE_CLIENT", "ROLE_TRUSTED_CLIENT", "USER")
                 .scopes("read", "write")
                 .resourceIds(RESOURCE_ID)
                 .secret(CLIENT_SECRET)
@@ -43,9 +45,5 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
         endpoints.authenticationManager(authenticationManager).tokenStore(tokenStore);
     }
 
-    @Bean
-    public TokenStore tokenStore() {
-        return new InMemoryTokenStore();
-    }
 
 }

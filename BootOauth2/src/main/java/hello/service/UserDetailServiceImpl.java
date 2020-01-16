@@ -1,16 +1,19 @@
 package hello.service;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import hello.entity.User;
+import hello.entity.Role;
 import hello.repository.UserRepository;
 
 @Service
@@ -20,16 +23,24 @@ public class UserDetailServiceImpl implements UserDetailsService {
     private UserRepository userRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByUsername(username);
-        if(user == null){
-            throw new UsernameNotFoundException("Invalid username or password.");
+    public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
+        hello.entity.User user = userRepository.findByUsername(name);
+        if (user == null) {
+            System.err.println("Không tồn tại user nào!");
+            throw new UsernameNotFoundException("User " + name + " was not found in the DB");
         }
 
-        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), getAuthority());
-    }
+        Set<Role> roles = user.getRoles();
+        List<GrantedAuthority> grantList = new ArrayList<>();
+        if (roles != null && roles.size() != 0) {
+            for (Role role : roles) {
+                grantList.add(new SimpleGrantedAuthority(role.getName()));
+            }
+        } else {
+            System.err.println("This user doesn't have any role!");
+            throw new UsernameNotFoundException("User " + name + " doesn't have any role");
+        }
 
-    private List<SimpleGrantedAuthority> getAuthority() {
-        return Arrays.asList(new SimpleGrantedAuthority("ROLE_ADMIN"));
+        return new User(user.getUsername(), user.getPassword(), grantList);
     }
 }

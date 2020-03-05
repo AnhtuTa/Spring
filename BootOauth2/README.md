@@ -17,21 +17,21 @@ https://github.com/ServiceStack/redis-windows#current-version-30503-june-28-2016
 
 ### How to run (using Postman):
 - Lấy access_token:
-- POST: http://localhost:9007/boot-oauth2/oauth/token
-- Header: Authorization=Basic Y2xpZW50SWQ6c2VjcmV0QHR1emFrdQ (clientId:secret@tuzaku in Base64)
-- Body (form-data):
-username=att
-password=1111
-grant_type=password
+    - POST: http://localhost:9007/boot-oauth2/oauth/token
+    - Header: Authorization=Basic Y2xpZW50SWQ6c2VjcmV0QHR1emFrdQ (clientId:secret@tuzaku in Base64)
+    - Body (form-data):
+        username=att
+        password=1111
+        grant_type=password
 - Refresh access_token (xin cấp lại access_token)
-- POST: http://localhost:9007/boot-oauth2/oauth/token
-- Header: Authorization=Basic Y2xpZW50SWQ6c2VjcmV0QHR1emFrdQ
-- Body (form-data):
-grant_type=refresh_token
-refresh_token=...
+    - POST: http://localhost:9007/boot-oauth2/oauth/token
+    - Header: Authorization=Basic Y2xpZW50SWQ6c2VjcmV0QHR1emFrdQ
+    - Body (form-data):
+        grant_type=refresh_token
+        refresh_token=... (refresh token ở bước lấy access_token)
 - Dùng access_token trên truy cập protected resource:
-- GET: http://localhost:9007/boot-oauth2/api/book/all
-- Header: Authorization=Bearer + access_token
+    - GET: http://localhost:9007/boot-oauth2/api/book/all
+    - Header: Authorization=Bearer + access_token
 - Test API on swagger: http://localhost:9007/boot-oauth2/swagger-ui.html
 
 ### CHÚ Ý: Nếu muốn tách riêng authorization server và resource server, có thể tham khảo:

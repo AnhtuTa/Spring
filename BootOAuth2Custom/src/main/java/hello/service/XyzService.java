@@ -15,13 +15,14 @@ import hello.exception.RestException;
 @Service
 public class XyzService {
 
+    private static final String [] users = {"zuka", "liliana", "enzo", "zephys", "amily"};
+
     /**
      * Check if username belongs to XYZ organization or not
-     * In this example, we assume that XYZ org has only 5  users above,
+     * In this example, we assume that XYZ org has only users in array above,
      * and passwords of theirs are "1111"
      */
     public boolean checkUserXyz(String username, String password) {
-        final String [] users = {"att", "tuzaku", "anhtu", "shuya", "noriko", "zuka", "liliana"};
         for (int i = 0; i < users.length; i++) {
             if(users[i].equals(username) && "1111".equals(password)) {
                 return true;

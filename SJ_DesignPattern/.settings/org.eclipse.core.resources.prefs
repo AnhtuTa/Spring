@@ -1,6 +1,6 @@
 eclipse.preferences.version=1
 encoding//src/design_pattern/creational/builder/Person.java=UTF-8
-encoding//src/design_pattern/creational/factory/Test.java=UTF-8
+encoding//src/design_pattern/creational/factory/sj/Test.java=UTF-8
 encoding//src/design_pattern/creational/prototype/User.java=UTF-8
 encoding//src/design_pattern/creational/singleton/BillPughSingleton.java=UTF-8
 encoding//src/design_pattern/creational/singleton/EagerInitializedSingleton.java=UTF-8

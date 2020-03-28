@@ -7,6 +7,11 @@ INSERT INTO `book` (`id`, `title`, `author`, `price`, `created_date`, `modified_
 INSERT INTO `user` (`id`, `username`, `password`) VALUES ('1', 'admin', '{bcrypt}$2a$10$4TENNUAwIX4uG8GX2UWPBOuVSB3mBIlMcSVzAePDI/DHieJKQ0P7O');
 INSERT INTO `user` (`id`, `username`, `password`) VALUES ('2', 'att', '{bcrypt}$2a$10$4TENNUAwIX4uG8GX2UWPBOuVSB3mBIlMcSVzAePDI/DHieJKQ0P7O');
 INSERT INTO `user` (`id`, `username`, `password`) VALUES ('3', 'zuka', 'N/A');
+INSERT INTO `user` (`id`, `username`, `password`) VALUES ('4', 'liliana', 'N/A');
+INSERT INTO `user` (`id`, `username`, `password`) VALUES ('5', 'enzo', 'N/A');
+INSERT INTO `user` (`id`, `username`, `password`) VALUES ('6', 'zephys', 'N/A');
+INSERT INTO `user` (`id`, `username`, `password`) VALUES ('7', 'amily', 'N/A');
+
 
 INSERT INTO `role` (`id`, `name`) VALUES ('1', 'ADMIN');
 INSERT INTO `role` (`id`, `name`) VALUES ('2', 'USER');
@@ -17,6 +22,6 @@ INSERT INTO `user_role` (`id`, `user_id`, `role_id`) VALUES ('2', '1', '2');
 INSERT INTO `user_role` (`id`, `user_id`, `role_id`) VALUES ('3', '2', '2');
 INSERT INTO `user_role` (`id`, `user_id`, `role_id`) VALUES ('4', '3', '3');
 
-INSERT INTO `boot_oauth2_2`.`school` (`id`, `name`, `address`) VALUES ('1', 'Đại học Bách Khoa Hà Nội', 'Hanoi');
-INSERT INTO `boot_oauth2_2`.`school` (`id`, `name`, `address`) VALUES ('2', 'Đại học Xây Dựng', 'Hanoi');
-INSERT INTO `boot_oauth2_2`.`school` (`id`, `name`, `address`) VALUES ('3', 'Đại học Ngoại Thương', 'Hanoi');
+INSERT INTO `school` (`id`, `name`, `address`) VALUES ('1', 'Đại học Bách Khoa Hà Nội', 'Hanoi');
+INSERT INTO `school` (`id`, `name`, `address`) VALUES ('2', 'Đại học Xây Dựng', 'Hanoi');
+INSERT INTO `school` (`id`, `name`, `address`) VALUES ('3', 'Đại học Ngoại Thương', 'Hanoi');

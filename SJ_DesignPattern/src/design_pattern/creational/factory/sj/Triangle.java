@@ -1,4 +1,4 @@
-package design_pattern.creational.factory;
+package design_pattern.creational.factory.sj;
 
 public class Triangle extends Shape {
 	public int a,b,c;

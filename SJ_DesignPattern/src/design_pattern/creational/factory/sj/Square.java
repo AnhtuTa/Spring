@@ -1,4 +1,4 @@
-package design_pattern.creational.factory;
+package design_pattern.creational.factory.sj;
 
 public class Square extends Shape {
 	int a;

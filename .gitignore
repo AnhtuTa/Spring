@@ -20,17 +20,17 @@
 **/.gradle/
 
 ### IntelliJ IDEA ###
-.idea
-*.iws
+**/.idea
+**/*.iws
 *.iml
 *.ipr
 
 ### NetBeans ###
-/nbproject/private/
-/build/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
+**/nbproject/private/
+**/build/
+**/nbbuild/
+**//dist/
+**/nbdist/
+**/.nb-gradle/
 
 **/.mvn

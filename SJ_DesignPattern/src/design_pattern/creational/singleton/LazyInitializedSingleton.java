@@ -1,11 +1,19 @@
 package design_pattern.creational.singleton;
 
 /*
- * Tạo thể hiện của Class Singleton trong method access. 
+ * Tạo thể hiện của Class Singleton trong method access.
+ * 
+ * Cách này đã khắc phục được nhược điểm của cách Eager initialization,
+ * chỉ khi nào getInstance() được gọi thì instance mới được khởi tạo
+ * 
  * Cách này có nhược điểm là không hoạt động đúng trong 
- * trư�?ng hợp có nhi�?u thread, giả sử có nhi�?u thread cùng 
- * lúc g�?i method getInstance() sẽ có nhi�?u thể hiện khác 
+ * trường hợp có nhiều thread, giả sử có nhiều thread cùng 
+ * lúc gọi method getInstance() sẽ có nhiều thể hiện khác 
  * nhau được tạo
+ * 
+ * Một nhược điểm nữa của Lazy Initialization cần quan tâm là: đối với
+ * thao tác create instance quá chậm thì người dùng có phải chờ lâu
+ * cho lần sử dụng đầu tiên.
  */
 public class LazyInitializedSingleton {
 	private static LazyInitializedSingleton instance;

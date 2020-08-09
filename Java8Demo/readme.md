@@ -41,8 +41,9 @@ System.out::println
 ```
 - Lambda expression: Thêm khả năng xử lý function cho Java. Cái này khá giống
   arrow function trong Javascript
-- Stream API: giúp cho việc thao tác trên collection và array trở nên dễ dàng và
-  tối ưu hơn. Nó thực hiện chỉ khi nó yêu cầu (lazy).
+- Stream API : bao gồm các class, interface và enum để cho phép các hoạt động
+  kiểu function trên các element (phần tử) của một Collection, Array. Nó thực
+  hiện chỉ khi nó yêu cầu (lazy).
 - Date Time API : cung cấp một số lớp mới trong gói java.time cùng với định dạng
   thời gian Joda.
 - Optional : là một lớp được sử dụng để hạn chế với lỗi NullPointerException

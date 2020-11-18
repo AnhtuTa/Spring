@@ -27,6 +27,9 @@ import java.util.stream.Stream;
  * tưởng: user chỉ extract những data mà họ muốn từ stream, và những data này chỉ được tạo ra
  * (invisible với user) khi cần thiết -> This is a form of a producer-consumer relationship
  * 
+ * Nhận xét: các method filter, map, reduce của stream trong Java 8 giống hệt với các method
+ * filter, map, reduce của Array trong Javascript
+ * 
  * @author Anhtu
  */
 public class Streams {
@@ -219,6 +222,37 @@ public class Streams {
         streamSupplier = () -> items.stream();
         System.out.println(streamSupplier.get().anyMatch(s -> s.contains("Sony")));
         System.out.println(streamSupplier.get().allMatch(s -> s.contains("Sony")));
+
+        // Bản chất của Stream
+        List<String> result = Stream
+                .of("bạn", "hãy", "like", "Fanpage", "loda", "dể", "cập", "nhật", "nhiều", "hơn")
+                .filter(s -> {
+                    System.out.println("[filtering] " + s);
+                    return s.length() >= 4;
+                }).map(s -> {
+                    System.out.println("[mapping] " + s);
+                    return s.toUpperCase();
+                }).limit(3).collect(Collectors.toList());
+        System.out.println("----------------------");
+        System.out.println("Result:");
+        result.forEach(System.out::println);
+
+        // Kết quả:
+        // [filtering] bạn // không thoả mãn
+        // [filtering] hãy // tiếp tục tìm, cũng k thoả mãn
+        // [filtering] like // thoả mãn
+        // [mapping] like // mapping nó luôn
+        // [filtering] Fanpage // lại quay lại filter tìm tiếp, thoả mãn
+        // [mapping] Fanpage // mapping
+        // [filtering] loda // thoả mãn
+        // [mapping] loda // mapping
+        // Đủ 3 trường hợp thoả mãn, dừng.
+        // Bạn sẽ thấy rằng chương trình chỉ xử lý dữ liệu vừa đủ thoả mãn điều kiện limit(3) mà
+        // thôi, còn lại nó sẽ bỏ qua để tối ưu hoá performance
+        // Chứng tỏ Stream là Lazy evaluation. Hiểu đơn giản là nó sẽ không xử lý dữ liệu trực tiếp
+        // qua từng bước, mà chờ bạn khai báo xong tất cả các thao tác operation như map,
+        // filter,v.v.. cho tới khi gặp lệnh .collect() thì nó thực hiện toàn bộ trong một vòng lặp
+        // duy nhất
     }
 
     public static List<String> createDummyData() {

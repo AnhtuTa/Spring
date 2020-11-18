@@ -7,44 +7,20 @@ import java.util.List;
 import java.util.function.Consumer;
 
 /**
- * Lambda Expressions (Biểu thức Lambda) là một trong những tính năng mới được giới thiệu trong Java
- * 8.
+ * Lambda Expression là một cách định nghĩa ngắn gọn khi implement một Functional Interface
  * 
- * Trước khi Java 8, mọi thứ chủ yếu là hướng đối tượng. Ngoại trừ các kiểu dữ liệu nguyên thủy
- * (primitive type), mọi thứ trong java tồn tại dưới dạng đối tượng. Tất cả các lời gọi đến các
- * method/ function sẽ được thực hiện bằng cách sử dụng các class hoặc object. Các method/function
- * không tồn tại độc lập.
+ * Sử dụng Functional interface: Trước Java 8: chúng ta tạo anonymous inner classes. Từ Java 8: sử
+ * dụng biểu thức lambda thay vì các anonymous inner classes
  * 
- * Với Java 8, lập trình chức năng (functional programming) đã được giới thiệu. Vì vậy, chúng ta có
- * thể dễ dàng sử dụng các chức năng ẩn danh (anonymous functions). Nó tạo điều kiện cho các lập
- * trình viên lập trình Functional và phát triển ứng dụng đơn giản hơn rất nhiều so với những phiên
- * bản trước đó. Nó cung cấp một cách rõ ràng và ngắn ngọn để đại diện cho một Functional Interface
- * sử dụng một biểu thức lamda.
+ * Cấu trúc của một lambda như sau: parameter -> { expression body [return] // (không trả về nếu là
+ * void) }
  * 
- * Lambda Expression (biểu thức Lambda) có thể được định nghĩa là một hàm ẩn danh, cho phép người
- * dùng chuyển các phương thức làm đối số. Điều này giúp loại bỏ rất nhiều mã soạn sẵn.
+ * parameter -> expression body
  * 
- * Lambda Expression là một hàm không có tên và không thuộc bất kỳ lớp nào, không có phạm vi truy
- * cập (private, public hoặc protected), không khai báo kiểu trả về.
- * 
- * Tại sao sử dụng biểu thức Lambda?
- * - Cung cấp bản implement cho Functional interface.
- * - Viết ít code hơn.
- * - Hiệu quả hơn nhờ hỗ trợ thực hiện tuần tự (sequential) và song song (parallel) thông qua
- * Stream API.
- * 
- * Sử dụng biểu thức Lambda
- * Để sử dụng biểu thức lambda, chúng ta cần tạo Functional interface của
- * riêng mình hoặc sử dụng Functional interface do Java cung cấp. Một interface chỉ có 1 phương thức
- * trừu tượng duy nhất được gọi là Functional interface. Ví dụ: Runnable, callable, Comparator, …
- * 
- * Sử dụng Functional interface:
- * Trước Java 8: chúng ta tạo anonymous inner classes.
- * Từ Java 8: sử dụng biểu thức lambda thay vì các anonymous inner classes
  * 
  * @author Anhtu
  * 
- * Nhận thấy thằng này giống hệt Arrow Function trong Javascript
+ *         Nhận xét: Lambda Expression khá giống Arrow Function trong Javascript
  */
 public class LambdaExpressions {
 
@@ -132,10 +108,12 @@ interface Sayable1 {
     public String say();
 }
 
+
 @FunctionalInterface
 interface Sayable2 {
     public String say(String name);
 }
+
 
 @FunctionalInterface
 interface Addable {

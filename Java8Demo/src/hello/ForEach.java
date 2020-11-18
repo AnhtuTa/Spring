@@ -8,13 +8,11 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 /**
- * The Java forEach is a utility method to iterate over a collection such as (list, set or map) and
- * stream and perform a certain action on each element of it. forEach giúp duyệt các collection,
- * stream và thực hiện 1 hành động nào đó lên mỗi phần tử đó trong lúc duyệt
+ * Phương thức forEach() là một tính năng mới của java 8.
  * 
- * Phương thức forEach() là một tính năng mới của java 8. Nó là một phương thức mặc định (default
- * method) được định nghĩa trong interface Iterable và Stream. Các lớp Collection extends từ
- * interface Iterable có thể sử dụng vòng lặp forEach() để duyệt các phần tử
+ * Nó là một phương thức mặc định (default method) được định nghĩa trong interface Iterable và
+ * Stream. Các lớp Collection extends từ interface Iterable có thể sử dụng vòng lặp forEach() để
+ * duyệt các phần tử
  * 
  * @author Anhtu
  */
@@ -116,9 +114,12 @@ public class ForEach {
         data.forEach(new Consumer<Map<Object, Object>>() {
             @Override
             public void accept(Map<Object, Object> map) {
-                if(map.get("name") != null) nameList.add(map.get("name").toString());
-                if(map.get("dob") != null) dobList.add(Integer.valueOf(map.get("dob")+""));
-                if(map.get("address") != null) addressList.add(map.get("address").toString());
+                if (map.get("name") != null)
+                    nameList.add(map.get("name").toString());
+                if (map.get("dob") != null)
+                    dobList.add(Integer.valueOf(map.get("dob") + ""));
+                if (map.get("address") != null)
+                    addressList.add(map.get("address").toString());
             }
         });
         System.out.println(nameList);
@@ -127,9 +128,12 @@ public class ForEach {
 
         System.out.println("\n=====> C2:");
         data.forEach(map -> {
-            if(map.get("name") != null) nameList.add(map.get("name").toString());
-            if(map.get("dob") != null) dobList.add(Integer.valueOf(map.get("dob")+""));
-            if(map.get("address") != null) addressList.add(map.get("address").toString());
+            if (map.get("name") != null)
+                nameList.add(map.get("name").toString());
+            if (map.get("dob") != null)
+                dobList.add(Integer.valueOf(map.get("dob") + ""));
+            if (map.get("address") != null)
+                addressList.add(map.get("address").toString());
         });
         System.out.println(nameList);
         System.out.println(dobList);

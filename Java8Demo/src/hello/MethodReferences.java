@@ -3,16 +3,12 @@ package hello;
 import java.util.Arrays;
 
 /**
- * Method References là một tính năng khá hay và liên quan đến việc sử dụng Lambda Expression. Nó
- * cung cấp các cú pháp hữu ích để truy cập trực tiếp tới các constructor hoặc method đã tồn tại của
- * các lớp hoặc đối tượng trong Java mà không cần thực thi chúng. -> Code đơn giản hơn rất nhiều,
- * nhìn đẹp hơn.
- * 
- * Method References là cú pháp viết tắt của biểu thức Lambda để gọi phương thức
+ * Method reference là cách viết ngắn gọn của Lambda Expression: nó sẽ bỏ qua luôn cả phần parameter
+ * vì bản thân tên hàm đã biết nó sẽ nhận vào gì và trả ra cái gì rồi.
  * 
  * Sử dụng từ khóa ::
  * 
- * Các loại Method References
+ * Các loại Method References:
  * Tham chiếu đến một static method – Class::staticMethod
  * Tham chiếu đến một instance method của một đối tượng cụ thể – object::instanceMethod
  * Tham chiếu đến một instance method của một đối tượng tùy ý của một kiểu cụ thể – Class::instanceMethod
@@ -23,6 +19,7 @@ import java.util.Arrays;
  *   khi Lamba gọi một phương thức nào đó đã được định nghĩa sẵn.
  * - Chúng ta không thể truyền tham số cho các Method References, phải sử dụng
  *   đi kèm với Functional Interfaces
+ * 
  * @author Anhtu
  */
 public class MethodReferences {
@@ -63,7 +60,7 @@ public class MethodReferences {
         for (String str : stringArray) {
             System.out.println(str);
         }
-        
+
         // 4. Tham chiếu đến một constuctor: ClassName::new
         // Chú ý: chỉ dùng cho 1 Functional Interface
         // Éo hiểu cái này nên chưa biết VD như nào!

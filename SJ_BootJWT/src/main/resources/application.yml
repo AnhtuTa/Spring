@@ -1,0 +1,21 @@
+server:
+  port: 9011
+  servlet:
+    context-path: /boot-jwt
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/boot_jwt?characterEncoding=utf8&verifyServerCertificate=false&useSSL=true
+    username: root
+    password: 5555
+  jackson:
+    serialization:
+      indent-output: true
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        type: trace
+        use_sql_comments: false

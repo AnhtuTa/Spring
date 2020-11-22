@@ -2,3 +2,6 @@
 - JWT
 - Spring security
 - RESTful API
+
+Swagger local:
+http://localhost:9011/boot-jwt/swagger-ui.html

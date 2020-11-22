@@ -1,38 +1,37 @@
 package hello.controller;
 
 import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import hello.entities.User;
-import hello.service.JwtService;
+import hello.entity.User;
 import hello.service.UserService;
 
 @RestController
-@RequestMapping("/rest")
+@RequestMapping("/api/user")
 public class UserRestController {
-	@Autowired
-	private JwtService jwtService;
-	@Autowired
+
+    @Autowired
 	private UserService userService;
 
 	/* ---------------- GET ALL USER ------------------------ */
-	@RequestMapping(value = "/users", method = RequestMethod.GET)
+    @GetMapping
+//    @PreAuthorize("hasAuthority('USER')")
 	public ResponseEntity<List<User>> getAllUser() {
 		return new ResponseEntity<List<User>>(userService.findAll(), HttpStatus.OK);
 	}
 
 	/* ---------------- GET USER BY ID ------------------------ */
-	@RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
+    @GetMapping("/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
 	public ResponseEntity<Object> getUserById(@PathVariable int id) {
 		User user = userService.findById(id);
 		if (user != null) {
@@ -42,7 +41,8 @@ public class UserRestController {
 	}
 
 	/* ---------------- CREATE NEW USER ------------------------ */
-	@RequestMapping(value = "/users", method = RequestMethod.POST)
+    @PostMapping
+    @PreAuthorize("hasAuthority('ADMIN')")
 	public ResponseEntity<String> createUser(@RequestBody User user) {
 		if (userService.add(user)) {
 			return new ResponseEntity<String>("Created!", HttpStatus.CREATED);
@@ -52,28 +52,11 @@ public class UserRestController {
 	}
 
 	/* ---------------- DELETE USER ------------------------ */
-	@RequestMapping(value = "/users/{id}", method = RequestMethod.DELETE)
+	@DeleteMapping("/users/{id}")
+    @PreAuthorize("hasAuthority('ADMIN')")
 	public ResponseEntity<String> deleteUserById(@PathVariable int id) {
 		userService.delete(id);
 		return new ResponseEntity<String>("Deleted!", HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public ResponseEntity<String> login(HttpServletRequest request, @RequestBody User user) {
-		String result = "";
-		HttpStatus httpStatus = null;
-		try {
-			if (userService.checkLogin(user)) {
-				result = jwtService.generateTokenLogin(user.getUsername());
-				httpStatus = HttpStatus.OK;
-			} else {
-				result = "Wrong userId and password";
-				httpStatus = HttpStatus.BAD_REQUEST;
-			}
-		} catch (Exception ex) {
-			result = "Server Error";
-			httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
-		}
-		return new ResponseEntity<String>(result, httpStatus);
-	}
 }

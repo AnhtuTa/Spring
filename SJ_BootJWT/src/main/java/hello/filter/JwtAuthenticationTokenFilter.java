@@ -29,7 +29,7 @@ import hello.service.JwtService;
 @Component
 public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
 
-    private final static String TOKEN_HEADER = "authorization";
+    private final static String TOKEN_HEADER = "Authorization";
 
     @Autowired
     private JwtService jwtService;

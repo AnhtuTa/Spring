@@ -3,13 +3,11 @@ package hello.service;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
-import hello.common.Result;
 import hello.entity.User;
 import hello.model.LoginRequest;
 import hello.repository.UserRepository;
@@ -66,24 +64,5 @@ public class UserService {
             e.printStackTrace();
             return false;
         }
-    }
-
-    public Result getMe() {
-        Result result = new Result();
-
-        try {
-            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-            if (!(authentication instanceof AnonymousAuthenticationToken)) {
-                String currentUserName = authentication.getName();
-                User user = userRepository.findByUsername(currentUserName);
-                result.successRes(user);
-            } else {
-                result.failRes(null);
-            }
-        } catch (Exception e) {
-            result.failRes(e.getMessage());
-        }
-
-        return result;
     }
 }

@@ -19,39 +19,39 @@ import hello.service.UserService;
 public class UserRestController {
 
     @Autowired
-	private UserService userService;
+    private UserService userService;
 
-	/* ---------------- GET ALL USER ------------------------ */
+    /* ---------------- GET ALL USER ------------------------ */
     @GetMapping
-	public ResponseEntity<List<User>> getAllUser() {
-		return new ResponseEntity<List<User>>(userService.findAll(), HttpStatus.OK);
-	}
+    public ResponseEntity<List<User>> getAllUser() {
+        return new ResponseEntity<List<User>>(userService.findAll(), HttpStatus.OK);
+    }
 
-	/* ---------------- GET USER BY ID ------------------------ */
+    /* ---------------- GET USER BY ID ------------------------ */
     @GetMapping("/{id}")
-	public ResponseEntity<Object> getUserById(@PathVariable int id) {
-		User user = userService.findById(id);
-		if (user != null) {
-			return new ResponseEntity<Object>(user, HttpStatus.OK);
-		}
-		return new ResponseEntity<Object>("Not Found User", HttpStatus.NO_CONTENT);
-	}
+    public ResponseEntity<Object> getUserById(@PathVariable int id) {
+        User user = userService.findById(id);
+        if (user != null) {
+            return new ResponseEntity<Object>(user, HttpStatus.OK);
+        }
+        return new ResponseEntity<Object>("Not Found User", HttpStatus.NO_CONTENT);
+    }
 
-	/* ---------------- CREATE NEW USER ------------------------ */
+    /* ---------------- CREATE NEW USER ------------------------ */
     @PostMapping
-	public ResponseEntity<String> createUser(@RequestBody User user) {
-		if (userService.add(user)) {
-			return new ResponseEntity<String>("Created!", HttpStatus.CREATED);
-		} else {
-			return new ResponseEntity<String>("User Existed!", HttpStatus.BAD_REQUEST);
-		}
-	}
+    public ResponseEntity<String> createUser(@RequestBody User user) {
+        if (userService.add(user)) {
+            return new ResponseEntity<String>("Created!", HttpStatus.CREATED);
+        } else {
+            return new ResponseEntity<String>("User Existed!", HttpStatus.BAD_REQUEST);
+        }
+    }
 
-	/* ---------------- DELETE USER ------------------------ */
-	@DeleteMapping("/users/{id}")
-	public ResponseEntity<String> deleteUserById(@PathVariable int id) {
-		userService.delete(id);
-		return new ResponseEntity<String>("Deleted!", HttpStatus.OK);
-	}
+    /* ---------------- DELETE USER ------------------------ */
+    @DeleteMapping("/users/{id}")
+    public ResponseEntity<String> deleteUserById(@PathVariable int id) {
+        userService.delete(id);
+        return new ResponseEntity<String>("Deleted!", HttpStatus.OK);
+    }
 
 }

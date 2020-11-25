@@ -28,15 +28,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsService userDetailsService;
 
-	@Bean
-	public RestAuthenticationEntryPoint restServicesEntryPoint() {
-		return new RestAuthenticationEntryPoint();
-	}
+    @Bean
+    public RestAuthenticationEntryPoint restServicesEntryPoint() {
+        return new RestAuthenticationEntryPoint();
+    }
 
-	@Bean
-	public CustomAccessDeniedHandler customAccessDeniedHandler() {
-		return new CustomAccessDeniedHandler();
-	}
+    @Bean
+    public CustomAccessDeniedHandler customAccessDeniedHandler() {
+        return new CustomAccessDeniedHandler();
+    }
 
     @Bean
     @Override
@@ -55,30 +55,30 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
     }
-	
-	/**
-	 * Filter sẽ được thực thi với tất cả các endpoint được config bởi HttpSecurity.
-	 * Do đó muốn exclude endpoint nào thì phải dùng WebSecurity
-	 * 
-	 * Ref: https://stackoverflow.com/a/38960531/7688028
-	 */
-	@Override
-	public void configure(WebSecurity web) throws Exception {
-	    // Ignore login, swagger endpoints
-	    web.ignoring().antMatchers(
-	            "/login",
-	            "/logout",
-	            "/v2/api-docs",
+    
+    /**
+     * Filter sẽ được thực thi với tất cả các endpoint được config bởi HttpSecurity.
+     * Do đó muốn exclude endpoint nào thì phải dùng WebSecurity
+     * 
+     * Ref: https://stackoverflow.com/a/38960531/7688028
+     */
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        // Ignore login, swagger endpoints
+        web.ignoring().antMatchers(
+                "/login",
+                "/logout",
+                "/v2/api-docs",
                 "/configuration/ui",
                 "/swagger-resources/**",
                 "/configuration/security",
                 "/swagger-ui.html",
                 "/webjars/**");
-	}
+    }
 
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-	    //bean jwtAuthenticationTokenFilter sẽ thực hiện việc xác thực người dùng
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        //bean jwtAuthenticationTokenFilter sẽ thực hiện việc xác thực người dùng
         // Nếu ko disable csrf thì trên swagger sẽ báo lỗi:
         // Could not verify the provided CSRF token because your session was not found
         http.csrf().disable()
@@ -100,5 +100,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .httpBasic().authenticationEntryPoint(restServicesEntryPoint()).and()
             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
             .exceptionHandling().accessDeniedHandler(customAccessDeniedHandler());
-	}
+    }
 }

@@ -1,0 +1,21 @@
+server:
+  port: 9019
+  servlet:
+    context-path: /boot-nplusone
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/boot_nplusone?characterEncoding=utf8&verifyServerCertificate=false&useSSL=true
+    username: root
+    password: 5555
+  jackson:
+    serialization:
+      indent-output: true
+  jpa:
+    properties:
+      hibernate:
+        show_sql: false # logback will show query
+        format_sql: true
+  flyway:
+    enabled: true
